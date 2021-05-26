@@ -1,0 +1,31 @@
+body{
+    margin: auto;
+}
+header{
+    margin-top: 0px;
+    background: black;
+}
+h1{
+    margin: auto;
+    font-family: 'Montserrat', sans-serif;
+    font-size: xx-large;
+    display: flex;
+    justify-content: center;
+    color: azure;
+    
+
+}
+ul{
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 20px;
+}
+a{
+    text-decoration: none;
+    color: black;
+    color: azure;
+
+}
+
+
