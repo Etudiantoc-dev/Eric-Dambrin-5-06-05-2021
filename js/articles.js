@@ -1,5 +1,6 @@
 class Article{
-    constructor(jsonArticle){
-        jsonArticle && Object.assign(this,jsonArticle);
+    constructor(cameras){
+         cameras && Object.assign(this,cameras);
+       
     }
     }
