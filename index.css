@@ -1,6 +1,8 @@
 body{
+    width: 100%;
     margin: auto;
-    height: 1000px;
+    flex-wrap: wrap;
+    
    
    
 }
@@ -23,14 +25,14 @@ h1{
 
 }
 ul{
-    width: 100%;
+    /* width: 100%; */
     display: flex;
     justify-content: space-between;
     margin: auto;
     padding-bottom: 6px;
 }
 .panier{
-    margin-right: 50px;
+    margin-right: 10px;
 }
 .index{
     position: relative;
@@ -45,15 +47,37 @@ a{
     
 
 }
-
-
+img{
+ width: 100%;
+ height: 150px;
+ 
+}
 
 .appareil_1,.appareil_2,.appareil_3,.appareil_4,.appareil_5{
-    display: flex;
+    
     height: 100px;
     margin: auto;
-    background:brown;
+    background:#6a6f6f;
     margin: 10px;
 }
 
+
+@media (min-width:768px) {
+    .appareil_1,.appareil_2,.appareil_3,.appareil_4{
+        width: 75%;
+        height: 200px;
+    }
+    .appareil_5{
+        width: 75%;
+        margin-left: 12.5%;
+
+    }
+    .un_deux,.trois_quatre{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+}
+    
 

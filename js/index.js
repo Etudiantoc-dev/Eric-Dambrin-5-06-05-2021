@@ -4,7 +4,7 @@ fetch('http://localhost:3000/api/cameras')
     console.log(jsonListArticle);
     for(let cameras of jsonListArticle){
     let appareil = new Article(cameras);
-    document.querySelector('.container').innerHTML += ` <div> <br/> img src= "http://localhost:3000/" ${appareil.imageUrl} <p> ${appareil.name}<br/> ${appareil.price}€</p> ${appareil.description} </div> `
+    document.querySelector('#container').innerHTML += `</div> "http://localhost:3000/"${appareil.imageUrl} <br/> <img src= "http://localhost:3000/" ${appareil.imageUrl} <p> ${appareil.name}<br/> ${appareil.price}€</p> ${appareil.description} </div> `
    
 }})
 
