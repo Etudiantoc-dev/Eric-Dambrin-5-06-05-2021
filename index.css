@@ -59,25 +59,50 @@ img{
     margin: auto;
     background:#6a6f6f;
     margin: 10px;
+    width: 100%;
+       
 }
 
 
-@media (min-width:768px) {
+@media (min-width:768px) and (max-width:1439px){
     .appareil_1,.appareil_2,.appareil_3,.appareil_4{
-        width: 75%;
+        /* width: 100%;
+        margin: auto; */
+        margin-top: 10px;
         height: 200px;
+        flex-wrap: wrap;
     }
     .appareil_5{
-        width: 75%;
-        margin-left: 12.5%;
+        /* width: 100%;   
+        margin: auto; */
+        margin-top: 10px;
+        height: 200px;
+        /* margin-left: 12.5%; */
 
     }
-    .un_deux,.trois_quatre{
+    .un_deux_trois{
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
         width: 100%;
     }
 
 }
-    
+@media (min-width:1440px){
+    .appareil_1,.appareil_2,.appareil_3,.appareil_4,.appareil_5{
+        width: 30%;
+        height: 200px;
+        flex-wrap: wrap;
+    }
+    .un_deux_trois{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+}
+.quatre_cinq{
+    display: flex;
+        justify-content: space-around;
+        width: 100%;
+}
 
+    
+}
