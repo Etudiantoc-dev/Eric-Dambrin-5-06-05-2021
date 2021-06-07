@@ -1,11 +1,38 @@
+
 fetch('http://localhost:3000/api/cameras')
-.then(data => data.json())
+.then(response => response.json())
 .then(jsonListCamera=>{
     console.log(jsonListCamera);
-    for(let camera of jsonListCamera){
-    let appareil = new Camera(camera);
-    document.querySelector('#container').innerHTML += `</div> "http://localhost:3000/"${appareil.imageUrl} <br/> <img src= "http://localhost:3000/" ${appareil.imageUrl} <p> ${appareil.name}<br/> ${appareil.price}€</p> ${appareil.description} </div> `
+    jsonListCamera.forEach((element, index) => {
+        let appareil = new Camera(element);
+        if(index < 3){
+            let container = document.querySelector(".un_deux_trois");
+            container.innerHTML += appareil.displayInList(index+1);  
+        }else{
+            let container = document.querySelector(".quatre_cinq");
+            container.innerHTML += appareil.displayInList(index+1);  
+        }
+    });
+    // let liens= document.querySelectorAll("a.external")
+
+    // for(let i= 0 ; i < liens.length ; i++){
+    //      let lien = liens[i]
+    //  lien.addEventListener('click', function () {
+    //     if(lien == [0])
+    //     let container_page_produit = document.querySelector(".unproduit ");
+    //     container_page_produit.innerHTML += appareil.displayInList(index); 
+    //  })
+        
+    
+
+    // }
    
-}})
+  
+})
+
+
+
+
+
 
 
