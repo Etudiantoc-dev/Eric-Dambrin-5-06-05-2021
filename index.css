@@ -73,6 +73,45 @@ img{
     /* width: 100%; */
        
 }
+/* STYLE POUR PAGE PANIER */
+
+.form_group{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    margin: auto;
+    
+    
+}
+h3,h4{
+    display: flex;
+    width: 68%;
+    justify-content: center;
+    margin: auto;
+}
+.formulaire,h3,h4,.form_group,a{
+    margin-top: 10px;
+}
+#paiement{
+   
+    border-style: ridge;
+   
+   
+}
+
+#ValiderPaiement{
+    color: black;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    /* border-style: ridge; */
+    background: #faebd780;
+    border: 0.01px ridge;
+}
+
+
+
 
 
 @media (min-width:768px) and (max-width:1439px){
@@ -123,3 +162,8 @@ img{
 
     
 }
+
+
+
+
+

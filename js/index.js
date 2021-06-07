@@ -18,7 +18,7 @@ fetch('http://localhost:3000/api/cameras')
     // for(let i= 0 ; i < liens.length ; i++){
     //      let lien = liens[i]
     //  lien.addEventListener('click', function () {
-    //     if(lien == [0])
+    //     if(lien == _id)
     //     let container_page_produit = document.querySelector(".unproduit ");
     //     container_page_produit.innerHTML += appareil.displayInList(index); 
     //  })

@@ -14,6 +14,26 @@ console.log(cameras); //Affichage de l'id sélectionné dans la console
 let getOneCamera = cameras.find((camera) => camera._id === id);
 console.log(getOneCamera);
 
+fetch('http://localhost:3000/api/cameras')
+.then(response => response.json())
+.then(jsonListCamera=>{
+    console.log(jsonListCamera);
+    jsonListCamera.forEach((element, index) => {
+        let appareil = new Camera(element);
+        if(index == id){
+            let container_page_produit = document.querySelector(".unproduit");
+            container_page_produit.innerHTML += appareil.displayInList(index);  
+        }else(index != id);{
+               console.log('error')
+        }
+           
+    
+    })})
+
+// let produitSelection = document.querySelector(".unproduit");
+// console.log(produitSelection)
+
+
 
 
 
