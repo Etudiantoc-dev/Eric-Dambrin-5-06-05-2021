@@ -10,25 +10,20 @@ console.log(urlSearchParams);//affichage parametres
 const id = urlSearchParams.get("id");//affichage ID sans le ?
 console.log(id);
 
-console.log(cameras); //Affichage de l'id sélectionné 
-let getOneCamera = cameras.find((camera) => camera._id === id);
-console.log(getOneCamera);
+// console.log(cameras); //Affichage de l'id sélectionné 
+// let getOneCamera = cameras.find((camera) => camera._id === id);
+// console.log(getOneCamera);
 
-fetch('http://localhost:3000/api/cameras')
+fetch('http://localhost:3000/api/cameras/' + id)
 .then(response => response.json())
-.then(jsonListCamera=>{
-    console.log(jsonListCamera);
-    jsonListCamera.forEach((element, index) => {
-        let appareil = new Camera(element);
-        if(index == id){
-            let container_page_produit = document.querySelector(".unproduit");
-            container_page_produit.innerHTML += appareil.displayInList(index);  
-        }else(index != id);{
-               console.log('error')
-        }
-           
+.then(item=>{
+    console.log(item);
+    let camera = new Camera(item)
+    document.querySelector('.unproduit').innerHTML = camera.displayInList(1)
     
-    })})
+    
+    
+    })
 
 // let produitSelection = document.querySelector(".unproduit");
 // console.log(produitSelection)
