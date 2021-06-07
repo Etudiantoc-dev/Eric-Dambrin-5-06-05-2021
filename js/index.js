@@ -13,7 +13,7 @@ fetch('http://localhost:3000/api/cameras')
             container.innerHTML += appareils.displayInList(index+1);  
         }
     });
-    // let liens= document.querySelectorAll("a.external")
+    // let liens= document.querySelectorAll("a.vers_produit")
 
     // for(let i= 0 ; i < liens.length ; i++){
     //      let lien = liens[i]
