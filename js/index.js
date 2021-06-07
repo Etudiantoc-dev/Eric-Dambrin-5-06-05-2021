@@ -4,13 +4,13 @@ fetch('http://localhost:3000/api/cameras')
 .then(jsonListCamera=>{
     console.log(jsonListCamera);
     jsonListCamera.forEach((element, index) => {
-        let appareil = new Camera(element);
+        let appareils = new Camera(element);
         if(index < 3){
             let container = document.querySelector(".un_deux_trois");
-            container.innerHTML += appareil.displayInList(index+1);  
+            container.innerHTML += appareils.displayInList(index+1);  
         }else{
             let container = document.querySelector(".quatre_cinq");
-            container.innerHTML += appareil.displayInList(index+1);  
+            container.innerHTML += appareils.displayInList(index+1);  
         }
     });
     // let liens= document.querySelectorAll("a.external")

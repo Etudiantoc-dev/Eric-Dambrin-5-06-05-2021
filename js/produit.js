@@ -1,16 +1,16 @@
 //Récuperation de la chaîne de requête dans l'url//
-const queryString_url_id = window.location.search;  // javascript 76
+const queryString_url_id = window.location.search;  
 console.log(queryString_url_id);
 
 
 
-const urlSearchParams = new URLSearchParams(queryString_url_id);  // javascript 77
-console.log(urlSearchParams);
+const urlSearchParams = new URLSearchParams(queryString_url_id);  
+console.log(urlSearchParams);//affichage parametres
 
-const id = urlSearchParams.get("id");
+const id = urlSearchParams.get("id");//affichage ID sans le ?
 console.log(id);
 
-console.log(cameras); //Affichage de l'id sélectionné dans la console
+console.log(cameras); //Affichage de l'id sélectionné 
 let getOneCamera = cameras.find((camera) => camera._id === id);
 console.log(getOneCamera);
 

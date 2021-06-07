@@ -39,6 +39,7 @@ ul{
     justify-content: space-between;
     margin: auto;
     padding-bottom: 6px;
+    list-style: none;
 }
 .panier{
     margin-right: 10px;
@@ -83,13 +84,27 @@ img{
     
     
 }
-h3,h4{
+h3{
     display: flex;
     width: 68%;
     justify-content: center;
     margin: auto;
 }
-.formulaire,h3,h4,.form_group,a{
+.instruction,.suite_instruction{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    font-size: large;
+    width: max-content;
+    flex-wrap: wrap;
+
+}
+.suite_instruction{
+    margin-top: -30px;
+}
+
+
+.formulaire,h3,.instruction,.form_group,a{
     margin-top: 10px;
 }
 #paiement{
@@ -136,12 +151,12 @@ h3,h4{
     }
 
 }
-@media (min-width:1440px){
+@media (min-width:768px){
     header{
             height: 75px;
     }
     .appareil_1,.appareil_2,.appareil_3,.appareil_4,.appareil_5{
-        width: 30%;
+        width: 43%;
         /* height: 200px; */
         flex-wrap: wrap;
     }
@@ -159,7 +174,14 @@ h3,h4{
         margin-top: 100px;
 }
 
-    
+
+}
+@media (min-width:1440px){
+    {
+       margin-left: 20px;
+       margin-right: 20px;
+       
+    }
 }
 
 
