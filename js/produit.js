@@ -10,20 +10,37 @@ console.log(urlSearchParams);//affichage parametres
 const id = urlSearchParams.get("id");//affichage ID sans le ?
 console.log(id);
 
-// console.log(cameras); //Affichage de l'id sélectionné 
-// let getOneCamera = cameras.find((camera) => camera._id === id);
-// console.log(getOneCamera);
 
 fetch('http://localhost:3000/api/cameras/' + id)
 .then(response => response.json())
 .then(item=>{
-    console.log(item);
+    // console.log(item);
     let camera = new Camera(item)
-    document.querySelector('.unproduit').innerHTML = camera.displayInList(1)
+    document.querySelector(".unproduit").innerHTML += camera.displayProduit();
+    
+  })
+    
+   
+
+    
+// fetch('http://localhost:3000/api/cameras/')
+//     .then(response => response.json())
+//     .then(jsonListLenses=>{
+//         console.log(jsonListLenses);
+//         jsonListLenses.forEach ( element, index => {
+//             let camera = new Camera(element);
+//             if(index <= 3){
+//                 document.querySelector(".options").innerHTML += camera.displayProduit(index);
+//             }
+
+            
+//         })})
+    
+        
     
     
     
-    })
+ 
 
 // let produitSelection = document.querySelector(".unproduit");
 // console.log(produitSelection)

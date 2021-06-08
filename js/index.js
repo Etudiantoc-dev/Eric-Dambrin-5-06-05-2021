@@ -13,19 +13,11 @@ fetch('http://localhost:3000/api/cameras')
             container.innerHTML += appareils.displayInList(index+1);  
         }
     });
-    // let liens= document.querySelectorAll("a.vers_produit")
-
-    // for(let i= 0 ; i < liens.length ; i++){
-    //      let lien = liens[i]
-    //  lien.addEventListener('click', function () {
-    //     if(lien == _id)
-    //     let container_page_produit = document.querySelector(".unproduit ");
-    //     container_page_produit.innerHTML += appareil.displayInList(index); 
-    //  })
+ 
         
     
 
-    // }
+    
    
   
 })

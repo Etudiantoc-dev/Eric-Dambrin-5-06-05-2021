@@ -15,6 +15,7 @@ header{
     margin: auto;
     background: black;
     box-shadow: 0px 6px rgb(237, 235, 235);
+   
 
 }
 h1{
@@ -27,13 +28,13 @@ h1{
     
 
 }
-h5{
+#container h5{
     margin-left: 10px;
 }
-p{
+#container p{
     margin-left: 5px;
 }
-ul{
+ ul{
     /* width: 100%; */
     display: flex;
     justify-content: space-between;
@@ -49,22 +50,31 @@ ul{
     right: 30px;
 }
 
-a{
+ a{
     text-decoration: none;
     color: azure;
     list-style: none;
     
 
 }
-img{
+#container img{
  
  width: 100%;
- /* height: 229px; */
+  height: 400px; 
  object-fit: cover;
  
 }
+#container_page_produit img{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    /* height: 300px; */
+    object-fit: cover;
+    margin-top: 20px;
+}
 
-.appareil_1,.appareil_2,.appareil_3,.appareil_4,.appareil_5{
+#container .appareil_1,.appareil_2,.appareil_3,.appareil_4,.appareil_5{
     
     /* height: 100px; */
     margin: auto;
@@ -73,9 +83,35 @@ img{
     /* width: 100%; */
        
 }
+/* PAGE PRODUIT*/
+#container_page_produit h5,.description_produit, label,select,.prix{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    color: black;
+    
+}
+#container_page_produit h5{
+    margin-top: 30px;
+}
+#container_page_produit .description_produit{
+       /* margin-top: 20px; */
+       width: 90%;
+       /* margin-left: 70px; */
+       display: flex;
+       justify-content: center;
+       margin: auto;
+}
+#container_page_produit label{
+   margin-top: 220px;
+}
+.prix{
+    margin-left: 200px;
+}
+
 /* STYLE POUR PAGE PANIER */
 
-.form_group{
+ .form_group{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -90,7 +126,7 @@ h3{
     justify-content: center;
     margin: auto;
 }
-.instruction,.suite_instruction{
+ .instruction,.suite_instruction{
     display: flex;
     justify-content: center;
     margin: auto;
@@ -99,12 +135,14 @@ h3{
     flex-wrap: wrap;
 
 }
-.suite_instruction{
+ .suite_instruction{
     margin-top: -30px;
 }
+.instruction{
+    margin-top: 10px;
+}
 
-
-.formulaire,h3,.instruction,.form_group,a{
+#paiement .formulaire,h3,.form_group,a{
     margin-top: 10px;
 }
 #paiement{
@@ -129,14 +167,15 @@ h3{
 
 
 @media (min-width:768px) and (max-width:1439px){
-    .appareil_1,.appareil_2,.appareil_3,.appareil_4{
+    /*PAGE INDEX*/
+    #container .appareil_1,.appareil_2,.appareil_3,.appareil_4{
         /* width: 100%;
         margin: auto; */
         margin-top: 10px;
         /* height: 200px; */
         flex-wrap: wrap;
     }
-    .appareil_5{
+    #container .appareil_5{
         /* width: 100%;   
         margin: auto; */
         margin-top: 10px;
@@ -149,13 +188,34 @@ h3{
         justify-content: space-around;
         width: 100%;
     }
+    /*PAGE PRODUIT*/
+    #container_page_produit img{
+        height: 42vh;
+        width: 75%;
+
+    } #container_page_produit .description_produit {
+        margin-top: 112px;
+        width: 51%;
+        /* margin-left: 270px; */
+        display: flex;
+        justify-content: center;
+        margin: auto;
+    }
+    #container_page_produit label{
+        margin-top: 80px;
+        display: flex;
+        justify-content: center;
+        margin: auto;
+        margin-top: 220px;
+    }
+
 
 }
 @media (min-width:768px){
     header{
             height: 75px;
     }
-    .appareil_1,.appareil_2,.appareil_3,.appareil_4,.appareil_5{
+    #container .appareil_1,.appareil_2,.appareil_3,.appareil_4,.appareil_5{
         width: 43%;
         /* height: 200px; */
         flex-wrap: wrap;
