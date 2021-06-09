@@ -24,10 +24,11 @@ class Camera{
                     
                     <div class='option'><form> <label for="option_lentilles"> Taille de la lentille : </label>
                    <select name="lentilles" id="lentilles">
+                   options:[
          <option value = "option1">${this.lenses[0]}</option>
          <option value = "option2">${this.lenses[1]}</option>
-         <option value = "option3">${this.lenses[2]}</option>
-         </form></div>`;
+         <option value = "option3">${this.lenses[2]}</option>]
+         </form><div class=ajouter><input type="submit" id="btn" value="Ajouter dans le panier" href="panier.html"></div></div>`;
                   
     }
   

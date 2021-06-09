@@ -17,8 +17,47 @@ fetch('http://localhost:3000/api/cameras/' + id)
     // console.log(item);
     let camera = new Camera(item)
     document.querySelector(".unproduit").innerHTML += camera.displayProduit();
-    
-  })
+    //RÉCUPÉRATIONS DES DONNÉS DE L'UTILISATEUR :
+    let idForm = document.querySelector("#lentilles");
+     console.log(idForm);
+     //mettre le choix de l'utilisateur dans une variable :
+     
+     //sélection du bouton ajouter au panier :
+     let btnSelection = document.querySelector("#btn");
+     //ecouter le bouton et envoyer au panier :
+     btnSelection.addEventListener("click", (event)=>{
+       event.preventDefault()
+       let choixForm = idForm.value;
+       console.log(choixForm)
+     })
+     //RÉCUPÉRATION DES VALEURS DU FORMULAIRE
+     let optionProduit = {
+       nom : camera.name,
+       prix : camera.price/100,
+       id : camera.id,
+       lentilles : idForm.value,
+       quantite : 1,
+}
+console.log(optionProduit)
+let nombreOptions = camera.lenses
+console.log(nombreOptions)
+//afficher le bon nombre d'option suivant le produit
+for(let i = 0; i<nombreOptions.length ; i++){
+  options = nombreOptions[i];
+  if(i==0){
+    document.querySelector("#lentilles").innerHTML += camera.displayProduit()
+    // console.log()
+  }
+}
+
+})
+//PANIER :
+
+
+//ID DU FORMULAIRE :
+
+
+
     
    
 
