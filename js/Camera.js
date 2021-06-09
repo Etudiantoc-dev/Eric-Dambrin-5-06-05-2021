@@ -11,7 +11,7 @@ class Camera{
     displayInList(index){
                 return `<div class="appareil_${index}">
                             <a href="produit.html?id=${this.id}"class= "photos"><img src="${this.imageUrl}">
-                                <h5 class="name">${this.name}></h5> <div class="prix">${this.price} €</div>
+                                <h5 class="name">${this.name}></h5> <div class="prix">${this.price/100} €</div>
                                 <p class="description_appareil" >${this.description}</p>
                         </div></a>` ; 
     }
@@ -19,8 +19,8 @@ class Camera{
 
         return `<div class="appareil">
                     <a href="panier.html?id=${this.id}class= "photos"><img src=${this.imageUrl}>
-                    <h5 class="name">${this.name}</h5></a><class="prix">${this.price} €</div>
-                    <p class="description_produit">${this.description}</p></div>
+                    <h5 class="name">${this.name}</h5> <div class="prixProduit">${this.price/100} €</div>
+                    <p class="description_produit">${this.description}</p></div></a>
                     
                     <form> <label for="option_lentilles"> Taille de la lentille : </label>
                    <select name="lentilles" id="lentilles">

@@ -6,6 +6,7 @@ body{
     width: 100%;
     margin: auto;
     flex-wrap: wrap;
+    font-variant-caps: small-caps;
   }
   
 
@@ -84,30 +85,31 @@ h1{
        
 }
 /* PAGE PRODUIT*/
-#container_page_produit h5,.description_produit, label,select,.prix{
+#container_page_produit h5,.description_produit,.prixProduit{
     display: flex;
     justify-content: center;
     margin: auto;
     color: black;
+    width: 80%;
+    margin-top: 10px;
+    
     
 }
-#container_page_produit h5{
-    margin-top: 30px;
-}
+
+
 #container_page_produit .description_produit{
        /* margin-top: 20px; */
-       width: 90%;
+       /* width: 90%; */
        /* margin-left: 70px; */
-       display: flex;
-       justify-content: center;
-       margin: auto;
+     
 }
-#container_page_produit label{
-   margin-top: 220px;
-}
-.prix{
-    margin-left: 200px;
-}
+ #container_page_produit label,select{
+   display: flex;
+   justify-content: center;
+   margin: auto;
+   margin-top: 10px;
+} 
+
 
 /* STYLE POUR PAGE PANIER */
 
