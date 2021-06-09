@@ -1,246 +1,227 @@
-body{ 
-    margin:0;
-    padding:0;
-    background: url(images/pexels-wouter-de-jong-571169.jpg) no-repeat center fixed; 
-    background-size:cover; 
-    width: 100%;
-    margin: auto;
-    flex-wrap: wrap;
-    font-variant-caps: small-caps;
-  }
-  
-
-
-header{
-    width: 100%;
-    margin: auto;
-    background: black;
-    box-shadow: 0px 6px rgb(237, 235, 235);
-   
-
-}
-h1{
-    margin: auto;
-    font-family: 'Montserrat', sans-serif;
-    font-size: xx-large;
-    display: flex;
-    justify-content:center;
-    color: azure;
-    
-
-}
-#container h5{
-    margin-left: 10px;
-}
-#container p{
-    margin-left: 5px;
-}
- ul{
-    /* width: 100%; */
-    display: flex;
-    justify-content: space-between;
-    margin: auto;
-    padding-bottom: 6px;
-    list-style: none;
-}
-.panier{
-    margin-right: 10px;
-}
-.index{
-    position: relative;
-    right: 30px;
+body {
+  margin: 0;
+  padding: 0;
+  background: url(images/pexels-wouter-de-jong-571169.jpg) no-repeat center
+    fixed;
+  background-size: cover;
+  width: 100%;
+  margin: auto;
+  flex-wrap: wrap;
+  font-variant-caps: small-caps;
 }
 
- a{
-    text-decoration: none;
-    color: azure;
-    list-style: none;
-    
+header {
+  width: 100%;
+  margin: auto;
+  background: black;
+  box-shadow: 0px 6px rgb(237, 235, 235);
+}
+h1 {
+  margin: auto;
+  font-family: "Montserrat", sans-serif;
+  font-size: xx-large;
+  display: flex;
+  justify-content: center;
+  color: azure;
+}
+#container h5 {
+  margin-left: 10px;
+}
+#container p {
+  margin-left: 5px;
+}
+ul {
+  /* width: 100%; */
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  padding-bottom: 6px;
+  list-style: none;
+}
+.panier {
+  margin-right: 10px;
+}
+.index {
+  position: relative;
+  right: 30px;
+}
 
+a {
+  text-decoration: none;
+  color: azure;
+  list-style: none;
 }
-#container img{
- 
- width: 100%;
-  height: 400px; 
- object-fit: cover;
- 
+#container img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
 }
-#container_page_produit img{
-    width: 80%;
-    display: flex;
-    justify-content: center;
-    margin: auto;
-    /* height: 300px; */
-    object-fit: cover;
-    margin-top: 20px;
+#container_page_produit img {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  /* height: 300px; */
+  object-fit: cover;
+  margin-top: 20px;
 }
 
-#container .appareil_1,.appareil_2,.appareil_3,.appareil_4,.appareil_5{
-    
-    /* height: 100px; */
-    margin: auto;
-    background:#6a6f6f;
-    margin: 10px;
-    /* width: 100%; */
-       
+#container .appareil_1,
+.appareil_2,
+.appareil_3,
+.appareil_4,
+.appareil_5 {
+  /* height: 100px; */
+  margin: auto;
+  background: #6a6f6f;
+  margin: 10px;
+  /* width: 100%; */
 }
 /* PAGE PRODUIT*/
-#container_page_produit h5,.description_produit,.prixProduit{
-    display: flex;
-    justify-content: center;
-    margin: auto;
-    color: black;
-    width: 80%;
-    margin-top: 10px;
-    
-    
+.option {
+  background: #faebd7cf;
+  margin-top: 20px;
+}
+#container_page_produit h5,
+.description_produit,
+.prixProduit,
+label,
+select {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  color: black;
+  margin-top: 10px;
 }
 
-
-#container_page_produit .description_produit{
-       /* margin-top: 20px; */
-       /* width: 90%; */
-       /* margin-left: 70px; */
-     
+#container_page_produit .description_produit {
+  width: 80%;
 }
- #container_page_produit label,select{
-   display: flex;
-   justify-content: center;
-   margin: auto;
-   margin-top: 10px;
-} 
-
 
 /* STYLE POUR PAGE PANIER */
 
- .form_group{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 50%;
-    margin: auto;
-    
-    
+.form_group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+  margin: auto;
 }
-h3{
-    display: flex;
-    width: 68%;
-    justify-content: center;
-    margin: auto;
+h3 {
+  display: flex;
+  width: 68%;
+  justify-content: center;
+  margin: auto;
 }
- .instruction,.suite_instruction{
-    display: flex;
-    justify-content: center;
-    margin: auto;
-    font-size: large;
-    width: max-content;
+.instruction,
+.suite_instruction {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  font-size: large;
+  width: max-content;
+  flex-wrap: wrap;
+}
+.suite_instruction {
+  margin-top: -30px;
+}
+.instruction {
+  margin-top: 10px;
+}
+
+#paiement .formulaire,
+h3,
+.form_group,
+a {
+  margin-top: 10px;
+}
+#paiement {
+  border-style: ridge;
+}
+
+#ValiderPaiement {
+  color: black;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  /* border-style: ridge; */
+  background: #faebd780;
+  border: 0.01px ridge;
+}
+
+@media (min-width: 768px) and (max-width: 1439px) {
+  /*PAGE INDEX*/
+  #container .appareil_1,
+  .appareil_2,
+  .appareil_3,
+  .appareil_4 {
+    /* width: 100%;
+        margin: auto; */
+    margin-top: 10px;
+    /* height: 200px; */
     flex-wrap: wrap;
-
-}
- .suite_instruction{
-    margin-top: -30px;
-}
-.instruction{
+  }
+  #container .appareil_5 {
+    /* width: 100%;   
+        margin: auto; */
     margin-top: 10px;
-}
+    /* height: 200px; */
+    /* margin-left: 12.5%; */
+  }
+  .un_deux_trois {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+  }
+  /*PAGE PRODUIT*/
+  form {
+    background: #faebd78c;
+  }
 
-#paiement .formulaire,h3,.form_group,a{
-    margin-top: 10px;
-}
-#paiement{
-   
-    border-style: ridge;
-   
-   
-}
-
-#ValiderPaiement{
-    color: black;
-    margin-top: 20px;
+  #container_page_produit img {
+    height: 42vh;
+    width: 75%;
+  }
+  #container_page_produit .description_produit {
+    margin-top: 112px;
+    width: 51%;
+    /* margin-left: 270px; */
     display: flex;
     justify-content: center;
-    /* border-style: ridge; */
-    background: #faebd780;
-    border: 0.01px ridge;
+    margin: auto;
+  }
+  #container_page_produit label {
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    margin-top: 220px;
+  }
 }
-
-
-
-
-
-@media (min-width:768px) and (max-width:1439px){
-    /*PAGE INDEX*/
-    #container .appareil_1,.appareil_2,.appareil_3,.appareil_4{
-        /* width: 100%;
-        margin: auto; */
-        margin-top: 10px;
-        /* height: 200px; */
-        flex-wrap: wrap;
-    }
-    #container .appareil_5{
-        /* width: 100%;   
-        margin: auto; */
-        margin-top: 10px;
-        /* height: 200px; */
-        /* margin-left: 12.5%; */
-
-    }
-    .un_deux_trois{
-        display: flex;
-        justify-content: space-around;
-        width: 100%;
-    }
-    /*PAGE PRODUIT*/
-    #container_page_produit img{
-        height: 42vh;
-        width: 75%;
-
-    } #container_page_produit .description_produit {
-        margin-top: 112px;
-        width: 51%;
-        /* margin-left: 270px; */
-        display: flex;
-        justify-content: center;
-        margin: auto;
-    }
-    #container_page_produit label{
-        margin-top: 80px;
-        display: flex;
-        justify-content: center;
-        margin: auto;
-        margin-top: 220px;
-    }
-
-
+@media (min-width: 768px) {
+  header {
+    height: 75px;
+  }
+  #container .appareil_1,
+  .appareil_2,
+  .appareil_3,
+  .appareil_4,
+  .appareil_5 {
+    width: 43%;
+    /* height: 200px; */
+    flex-wrap: wrap;
+  }
+  .un_deux_trois {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 75px;
+  }
+  .quatre_cinq {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 75px;
+    margin-top: 100px;
+  }
 }
-@media (min-width:768px){
-    header{
-            height: 75px;
-    }
-    #container .appareil_1,.appareil_2,.appareil_3,.appareil_4,.appareil_5{
-        width: 43%;
-        /* height: 200px; */
-        flex-wrap: wrap;
-    }
-    .un_deux_trois{
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-        margin-top: 75px;
-}
-    .quatre_cinq{
-        display: flex; 
-        justify-content: center;
-        width: 100%;
-        margin-top: 75px;
-        margin-top: 100px;
-}
-
-
-}
-
-
-
-
-
-

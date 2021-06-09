@@ -17,17 +17,17 @@ class Camera{
     }
     displayProduit (){
 
-        return `<div class="appareil">
+        return `<div class="appareilProduit">
                     <a href="panier.html?id=${this.id}class= "photos"><img src=${this.imageUrl}>
                     <h5 class="name">${this.name}</h5> <div class="prixProduit">${this.price/100} €</div>
                     <p class="description_produit">${this.description}</p></div></a>
                     
-                    <form> <label for="option_lentilles"> Taille de la lentille : </label>
+                    <div class='option'><form> <label for="option_lentilles"> Taille de la lentille : </label>
                    <select name="lentilles" id="lentilles">
          <option value = "option1">${this.lenses[0]}</option>
          <option value = "option2">${this.lenses[1]}</option>
          <option value = "option3">${this.lenses[2]}</option>
-         </form>`;
+         </form></div>`;
                   
     }
   
