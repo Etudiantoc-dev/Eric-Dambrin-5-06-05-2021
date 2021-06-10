@@ -17,20 +17,22 @@ fetch('http://localhost:3000/api/cameras/' + id)
     // console.log(item);
     let camera = new Camera(item)
     document.querySelector(".unproduit").innerHTML += camera.displayProduit();
+    
     //RÉCUPÉRATIONS DES DONNÉS DE L'UTILISATEUR :
     let idForm = document.querySelector("#lentilles");
-     console.log(idForm);
-     //mettre le choix de l'utilisateur dans une variable :
+    //  console.log(idForm);
+     
      
      //sélection du bouton ajouter au panier :
      let btnSelection = document.querySelector("#btn");
+     
      //ecouter le bouton et envoyer au panier :
      btnSelection.addEventListener("click", (event)=>{
        event.preventDefault()
        let choixForm = idForm.value;
        console.log(choixForm)
      })
-     //RÉCUPÉRATION DES VALEURS DU FORMULAIRE
+    //  RÉCUPÉRATION DES VALEURS DU FORMULAIRE
      let optionProduit = {
        nom : camera.name,
        prix : camera.price/100,
@@ -38,23 +40,23 @@ fetch('http://localhost:3000/api/cameras/' + id)
        lentilles : idForm.value,
        quantite : 1,
 }
-console.log(optionProduit)
+// console.log(optionProduit)
 let nombreOptions = camera.lenses
 console.log(nombreOptions)
+
 //afficher le bon nombre d'option suivant le produit
 for(let i = 0; i<nombreOptions.length ; i++){
   options = nombreOptions[i];
   if(i==0){
     document.querySelector("#lentilles").innerHTML += camera.displayProduit()
-    // console.log()
+    
+  }else {
+    document.querySelector("#lentilles").innerHTML += camera.displayProduit("")
   }
 }
 
 })
-//PANIER :
 
-
-//ID DU FORMULAIRE :
 
 
 
@@ -62,18 +64,7 @@ for(let i = 0; i<nombreOptions.length ; i++){
    
 
     
-// fetch('http://localhost:3000/api/cameras/')
-//     .then(response => response.json())
-//     .then(jsonListLenses=>{
-//         console.log(jsonListLenses);
-//         jsonListLenses.forEach ( element, index => {
-//             let camera = new Camera(element);
-//             if(index <= 3){
-//                 document.querySelector(".options").innerHTML += camera.displayProduit(index);
-//             }
 
-            
-//         })})
     
         
     
@@ -81,8 +72,7 @@ for(let i = 0; i<nombreOptions.length ; i++){
     
  
 
-// let produitSelection = document.querySelector(".unproduit");
-// console.log(produitSelection)
+
 
 
 
