@@ -9,6 +9,11 @@ body {
   flex-wrap: wrap;
   font-variant-caps: small-caps;
 }
+#bloc_page{
+  margin: auto;
+  width: 100%;
+  height: max-content;
+}
 
 header {
   width: 100%;
@@ -66,6 +71,8 @@ a {
   margin-top: 20px;
 }
 
+
+
 #container .appareil_1,
 .appareil_2,
 .appareil_3,
@@ -107,6 +114,23 @@ select {
 
 /* STYLE POUR PAGE PANIER */
 
+#produitChoisi{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: auto;
+}
+.choixProduit img{
+  width: 33%;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  /* height: 300px; */
+  object-fit: cover;
+  margin-top: 20px;
+  border-style: groove;
+}
+
 .form_group {
   display: flex;
   flex-direction: column;
@@ -114,7 +138,7 @@ select {
   width: 50%;
   margin: auto;
 }
-h3 {
+p.lentilles,.choixProduit .prixProduit,.choixProduit h5,h3 {
   display: flex;
   width: 68%;
   justify-content: center;
@@ -142,9 +166,6 @@ h3,
 a {
   margin-top: 10px;
 }
-#paiement {
-  border-style: ridge;
-}
 
 #coordonnees {
   color: black;
@@ -155,8 +176,13 @@ a {
   background: #faebd780;
   border: 0.01px ridge;
 }
+#paiement form {
+  background: #faebd78c;
+  border-style: ridge;
+}
 
 @media (min-width: 768px) and (max-width: 1439px) {
+  
   /*PAGE INDEX*/
   #container .appareil_1,
   .appareil_2,
@@ -181,10 +207,7 @@ a {
     width: 100%;
   } */
   /*PAGE PRODUIT*/
-  form {
-    background: #faebd78c;
-    height: 8vh;
-  }
+  
 
   #container_page_produit img {
     height: 42vh;
@@ -230,4 +253,14 @@ a {
     margin-top: 75px;
     margin-top: 100px;
   } 
+}
+@media (min-width: 1440px){
+  /* STYLE POUR PAGE PANIER */
+
+#produitChoisi{
+  display: flex;
+  flex-direction: initial;
+  justify-content: space-around;
+  margin: auto;
+}
 }

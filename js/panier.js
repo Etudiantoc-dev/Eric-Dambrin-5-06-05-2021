@@ -25,16 +25,16 @@
             `<div class="choixProduit">
         <class="image_choix_produit"><img src="${produitLocalStorage[i].image}">
         <h5 class="name">${produitLocalStorage[i].nom}</h5> <div class="prixProduit">${produitLocalStorage[i].prix} €</div>
-        <p class="description_produit">${produitLocalStorage[i].description}</p>
-        <p class="lentilles">${produitLocalStorage[i].lentilles} </p></div>`
+        <p class="lentilles">Taille de la lentille : ${produitLocalStorage[i].lentilles} </p></div>`
              
              
          }
+         if (i == produitLocalStorage.length ){ //Pour mettre l'ensemble des produits du panier visible sur la page
+            positionElement.innerHTML = structureProduitPanier;
+        }
          
      }
-     if (i == produitLocalStorage.length ){ //Pour mettre l'ensemble des produits du panier visible sur la page
-        positionElement.innerHTML = structureProduitPanier;
-    }
+
     
     
 
