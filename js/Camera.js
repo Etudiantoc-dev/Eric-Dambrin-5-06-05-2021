@@ -16,7 +16,7 @@ class Camera{
                         </div></a>` ; 
     }
     displayProduit (){
-        console.log(this)
+        // console.log(this)
         return `<div class="appareilProduit">
                     <div class= "photos"><img src="${this.imageUrl}"></div>
                     <h5 class="name">${this.name}</h5> <div class="prixProduit">${this.price/100} €</div>
@@ -34,12 +34,6 @@ class Camera{
                   
     }
 
-    displayPanier(){
-        return `<div class="choixProduit?id=${this.id}">
-        <class="image_choix_produit"><img src=${this.imageUrl}>
-        <h5 class="name">${this.name}</h5> <div class="prixProduit">${this.price/100} €</div>
-        <p class="description_produit">${this.description}</p></div>`
-    }
 
     displayLenses(){
         let option = '';

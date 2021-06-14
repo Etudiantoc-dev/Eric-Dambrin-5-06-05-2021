@@ -28,26 +28,69 @@ fetch('http://localhost:3000/api/cameras/' + id)
      //sélection du bouton ajouter au panier :
      let btnSelection = document.querySelector("#btn");
      let optionProduit = {
+      image : camera.imageUrl,
       nom : camera.name,
       prix : camera.price/100,
+      description : camera.description,
       id : camera.id,
-      lentilles : idForm.value, //choixForm ne marche pas??
+      lentilles : idForm.value, 
       quantite : 1,
 }
-     //ecouter le bouton et envoyer au panier :
+                  //.....................LOCAL STORAGE.....................//
+    //  ecouter le bouton et envoyer au panier :
      btnSelection.addEventListener("click", (event)=>{
        event.preventDefault()
-       let choixForm = (idForm.value);
-       let choixProduit = (optionProduit)
-       
-       console.log(choixForm,choixProduit);
-       localStorage.setItem("item",100)// Voir comment définir mon objet et l'enregistrer en local storage puis 
-       // visualiser l'objet dans le panier après avoir appuyé sur le lien panier
-        return(alert("La sélection est enregistré dans votre panier !"));
+       //DECLARATION DE LA VARIABLE "produitLocalStorage" dans laquelle on met les key et les values qui sont dans le local storage
+       let produitLocalStorage = JSON.parse(localStorage.getItem("produit"));
+       //.. JSON.parse c'est pour convertir les données format JSON qui sont dans le local storage en objet javascript
+    
+       // S'il y a dejà des produits enregistrés dans le local storage
+       if(produitLocalStorage){
+        produitLocalStorage.push(optionProduit);
+        localStorage.setItem("produit",JSON.stringify(produitLocalStorage))
+        console.log(produitLocalStorage)
         
-     })
+
+        return(alert("La sélection est enregistré dans votre panier !"));
+       }
+       //S'il n'y a pas de produit enregistré dans le local storage
+       else{
+         produitLocalStorage = []
+         console.log(produitLocalStorage);
+         produitLocalStorage.push(optionProduit);
+         localStorage.setItem("produit",JSON.stringify(produitLocalStorage))
+         return(alert("La sélection est enregistré dans votre panier !"));
+       }
+      })
+    })
+    
+    //  })
+
+
      
-    //  RÉCUPÉRATION DES VALEURS DU FORMULAIRE
+     
+     
+     
+    
+    
+    
+    
+    
+    
+    
+    //    let choixForm = (idForm.value);
+    //    let choixProduit = (optionProduit);
+       
+    //    console.log(choixForm,choixProduit);
+    //    localStorage.setItem(choixForm,choixProduit)// Voir comment définir mon objet et l'enregistrer en local storage puis 
+    //    // visualiser l'objet dans le panier après avoir appuyé sur le lien panier
+    //     return(alert("La sélection est enregistré dans votre panier !"));
+        
+    
+    
+    
+    
+     //  RÉCUPÉRATION DES VALEURS DU FORMULAIRE
  
 // console.log(optionProduit)
 // let nombreOptions = camera.lenses
@@ -66,7 +109,7 @@ fetch('http://localhost:3000/api/cameras/' + id)
 // }
 
 
-})
+
 
 
 
@@ -136,3 +179,4 @@ fetch('http://localhost:3000/api/cameras/' + id)
 
 
 
+    
