@@ -59,7 +59,7 @@ fetch('http://localhost:3000/api/cameras/' + id)
          console.log(produitLocalStorage);
          produitLocalStorage.push(optionProduit);
          localStorage.setItem("produit",JSON.stringify(produitLocalStorage))
-         return(alert("La sélection est enregistré dans votre panier !"));
+         return(confirm("Voulez-vous que La sélection soit enregistré dans votre panier ?"));
        }
       })
     })

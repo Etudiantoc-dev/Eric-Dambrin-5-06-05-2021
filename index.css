@@ -7,12 +7,12 @@ body {
   width: 100%;
   margin: auto;
   flex-wrap: wrap;
-  font-variant-caps: small-caps;
+  
 }
 #bloc_page{
   margin: auto;
   width: 100%;
-  height: max-content;
+  
 }
 
 header {
@@ -43,23 +43,25 @@ ul {
   padding-bottom: 6px;
   list-style: none;
 }
-.panier {
-  margin-right: 10px;
+ul li strong a{
+  margin-left: -20px;
 }
-.index {
-  position: relative;
-  right: 30px;
+li a {
+ margin-right: 30px;
 }
 
 a {
   text-decoration: none;
   color: azure;
   list-style: none;
+  position: relative;
+  bottom: 10px;
 }
 #container img {
   width: 100%;
   height: 400px;
   object-fit: cover;
+  padding-top: 10px;
 }
 #container_page_produit img {
   width: 80%;
@@ -80,8 +82,9 @@ a {
 .appareil_5 {
   /* height: 100px; */
   margin: auto;
-  background: #6a6f6f;
+  background: #868d8d61;
   margin: 10px;
+  box-shadow: 2px 2px rgb(45 30 30);
   /* width: 100%; */
 }
 /* PAGE PRODUIT*/
@@ -108,7 +111,11 @@ select {
   display: flex;
   justify-content: center;
   margin: auto;
-  margin-top: 5px;
+  margin-top: 22px;
+}
+#container .prix, .name, .description_appareil{
+  color: black;
+  margin-left: 10px;
 }
 
 
@@ -121,7 +128,7 @@ select {
   margin: auto;
 }
 .choixProduit img{
-  width: 33%;
+  width: 100%;
   display: flex;
   justify-content: center;
   margin: auto;
@@ -164,7 +171,7 @@ p.lentilles,.choixProduit .prixProduit,.choixProduit h5,h3 {
 h3,
 .form_group,
 a {
-  margin-top: 10px;
+  margin-top: 40px;
 }
 
 #coordonnees {
@@ -187,12 +194,12 @@ a {
   #container .appareil_1,
   .appareil_2,
   .appareil_3,
-  .appareil_4 {
+  .appareil_4 ,.appareil_5{
     /* width: 100%;
         margin: auto; */
     margin-top: 10px;
     /* height: 200px; */
-    flex-wrap: wrap;
+  
   }
   #container .appareil_5 {
     /* width: 100%;   
@@ -238,7 +245,7 @@ a {
   .appareil_5 {
     width: 43%;
     /* height: 200px; */
-    flex-wrap: wrap;
+   
   }
     .un_deux_trois {
     display: flex;

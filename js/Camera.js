@@ -11,7 +11,7 @@ class Camera{
     displayInList(index){
                 return `<div class="appareil_${index}">
                             <a href="produit.html?id=${this.id}"class= "photos"><img src="${this.imageUrl}">
-                                <h5 class="name">${this.name}></h5> <div class="prix">${this.price/100} €</div>
+                                <h5 class="name">${this.name}</h5> <div class="prix">${this.price/100} €</div>
                                 <p class="description_appareil" >${this.description}</p>
                         </div></a>` ; 
     }
@@ -21,7 +21,7 @@ class Camera{
                     <div class= "photos"><img src="${this.imageUrl}"></div>
                     <h5 class="name">${this.name}</h5> <div class="prixProduit">${this.price/100} €</div>
                     <p class="description_produit">${this.description}</p></div>
-                    <footer>
+                    
                     <div class='option'>
                     <form> 
                     <label for="option_lentilles"> Taille de la lentille : </label>
@@ -29,7 +29,7 @@ class Camera{
                        ${this.displayLenses()}
                    </select>
          </form>
-         </footer>
+         
          
          
          <div> <a href="panier.html?id=${this.id} class="ajouter"><input type="submit" id="btn" value="Ajouter dans le panier" ></div></div></a>`;//ne renvoit pas au panier?
