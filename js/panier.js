@@ -1,5 +1,5 @@
 
-    //DECLARATION DE LA VARIABLE "produitLocalStorage" dans laquelle on met les key et les values qui sont dans le local storage
+    //DECLARATION DE nouveau de la variable "produitLocalStorage" dans laquelle on met les key et les values qui sont dans le local storage
     let produitLocalStorage = JSON.parse(localStorage.getItem("produit"));
     //.. JSON.parse c'est pour convertir les données format JSON qui sont dans le local storage en objet javascript
      console.log(produitLocalStorage);

@@ -17,7 +17,7 @@ fetch('http://localhost:3000/api/cameras/' + id)
     // console.log(item);
     let camera = new Camera(item)
     document.querySelector(".unproduit").innerHTML += camera.displayProduit();
-    //document.getElementById('lentilles').innerHTML = camera.displayLenses();
+    
     
     //RÉCUPÉRATIONS DES DONNÉS DE L'UTILISATEUR :
     let idForm = document.querySelector("#lentilles");
@@ -51,7 +51,7 @@ fetch('http://localhost:3000/api/cameras/' + id)
         console.log(produitLocalStorage)
         
 
-        return(alert("La sélection est enregistré dans votre panier !"));
+        return(confirm("Voulez-vous que La sélection soit enregistré dans votre panier ?"));
        }
        //S'il n'y a pas de produit enregistré dans le local storage
        else{
