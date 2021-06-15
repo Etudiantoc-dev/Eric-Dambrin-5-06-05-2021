@@ -42,6 +42,7 @@ fetch('http://localhost:3000/api/cameras/' + id)
        event.preventDefault()
        //DECLARATION DE LA VARIABLE "produitLocalStorage" dans laquelle on met les key et les values qui sont dans le local storage
        let produitLocalStorage = JSON.parse(localStorage.getItem("produit"));
+       
        //.. JSON.parse c'est pour convertir les données format JSON qui sont dans le local storage en objet javascript
     
        // S'il y a dejà des produits enregistrés dans le local storage

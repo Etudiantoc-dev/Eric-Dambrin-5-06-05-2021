@@ -1,4 +1,6 @@
 
+    
+    
     //DECLARATION DE nouveau de la variable "produitLocalStorage" dans laquelle on met les key et les values qui sont dans le local storage
     let produitLocalStorage = JSON.parse(localStorage.getItem("produit"));
     //.. JSON.parse c'est pour convertir les données format JSON qui sont dans le local storage en objet javascript
@@ -34,6 +36,35 @@
         }
          
      }
+     let boutonEnvoi = document.querySelector('#bouton_envoi');
+     
+    
+     let prenom = document.querySelector("#firstName");
+     let nom = document.querySelector("#lastName");
+     let prenomM = document.getElementById("prenom_manquand");
+     let prenomValidation = /^[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?/;//regex pour validation du formulaire(prenom ici)
+    
+     boutonEnvoi.addEventListener("click",(e) =>{
+        // let champsDeSaisis = new Formulaire (prenom,nom);
+         if(prenom.validity.valueMissing){
+             e.preventDefault();//Bloc l'envoi du formulaire..
+             prenomM.textContent = 'Prénom manquant';
+             prenomM.style.color = 'red';
+
+         }else if (prenomValidation.test(prenom.value) == false){
+             e.preventDefault()
+             prenomM.textContent = 'Format incorrect';
+             prenomM.style.color = 'orange';
+
+         }else{
+             
+         }
+         
+        
+    
+
+
+     })
 
     
     

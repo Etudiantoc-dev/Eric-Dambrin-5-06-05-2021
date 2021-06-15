@@ -1,75 +1,86 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <link rel="icon" type="image/png" sizes="16x16" href="../frontendP5/Profil_favicone(1).ico"/>
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,100&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="index.css">
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width= device-width, initial-scale=1.0">
-        <title>Panier</title>
-    </head>
+
+<head>
+  <link rel="icon" type="image/png" sizes="16x16" href="../frontendP5/Profil_favicone(1).ico" />
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,100&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width= device-width, initial-scale=1.0">
+  <title>Panier</title>
+</head>
+
 <body>
   <div id="bloc_page">
     <header>
-        <h1>Orinoco</h1>
-        
-        <ul>
-            
-            <div class="index">
-            <li><strong><a href="index.html">Cameras</a></strong></li>
+      <h1>Orinoco</h1>
+
+      <ul>
+
+        <div class="index">
+          <li><strong><a href="index.html">Cameras</a></strong></li>
         </div>
-            <div class="panier"><li><a href="panier.html">panier</a></li>
-            
-            
-            
+        <div class="panier">
+          <li><a href="panier.html">panier</a></li>
+
+
+
         </div>
-        </ul>
-    
-        
-    
+      </ul>
+
+
+
     </header>
     <section>
       <div id="produitChoisi"></div>
-    
+
     </section>
-    
-  <aside>
-    <div id="paiement">
-    <h3 class="opération">Paiement</h3>
-    <form class="champ_a_remplir">
-     <div class="formulaire">
-      <div class="instruction"><p>Veuillez remplir le formulaire pour pouvoir</p></div><div class="suite_instruction"><p> procéder au paiement:</p></div>
-    
-      <div class="form_group">
-        <label for="firstName">Prénom</label>
-        <input type="text" class="form-control" id="firstName" placeholder="Prénom" required>
+
+    <aside>
+      <div id="paiement">
+        <h3 class="opération">Paiement</h3>
+        <form class="champ_a_remplir">
+          <div class="formulaire">
+            <div class="instruction">
+              <p>Veuillez remplir le formulaire pour pouvoir</p>
+            </div>
+            <div class="suite_instruction">
+              <p> procéder au paiement:</p>
+            </div>
+
+            <div class="form_group">
+              <label for="firstName">Prénom</label>
+              <input type="text" class="form-control" id="firstName" placeholder="Prénom" required>
+              <span id = 'prenom_manquand'></span><br />
+            </div>
+            <div class="form_group">
+              <label for="lastName">Nom</label>
+              <input type="text" class="form-control" id="lastName" placeholder="Nom" required>
+            </div>
+            <div class="form_group">
+              <label for="address">Adresse</label>
+              <input type="text" class="form-control" id="address" placeholder="Adresse" required>
+            </div>
+            <div class="form_group">
+              <label for="city">Ville</label>
+              <input type="text" class="form-control" id="city" placeholder="Ville" required>
+            </div>
+            <div class="form_group">
+              <label for="email">Adresse mail</label>
+              <input type="email" class="form-control" id="email" placeholder="Adresse mail" required>
+            </div>
+        </form>
+        <a href="#" id="bouton_envoi" role="button" type="submit">Envoyer</a>
       </div>
-      <div class="form_group">
-        <label for="lastName">Nom</label>
-        <input type="text" class="form-control" id="lastName" placeholder="Nom" required>
-      </div>
-      <div class="form_group">
-        <label for="address">Adresse</label>
-        <input type="text" class="form-control" id="address" placeholder="Adresse" required>
-      </div>
-      <div class="form_group">
-        <label for="city">Ville</label>
-        <input type="text" class="form-control" id="city" placeholder="Ville" required>
-      </div>
-      <div class="form_group">
-        <label for="email">Adresse mail</label>
-        <input type="email" class="form-control" id="email" placeholder="Adresse mail" required>
-      </div>
-    </form>
-     <a  href="#" id="coordonnees" role="button" type="submit">Envoyer</a>
-  </div> </div>
-</aside>
-    <script src="js/Camera.js"></script>
-    <script src="js/panier.js"></script>
-   
+  </div>
+  </aside>
+  <script src="js/Camera.js"></script>
+  <script src="js/panier.js"></script>
+  <script src="js/Formulaire .js"></script>
 
   </div>
 </body>
+
 </html>
