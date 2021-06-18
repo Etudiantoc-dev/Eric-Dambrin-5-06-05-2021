@@ -36,14 +36,41 @@
         }
          
      }
-     let boutonEnvoi = document.getElementById('#bouton');
+     
      
     
-     let prenom = document.querySelector("#firstName");
+     let form = document.querySelector(".champ_a_remplir");
+
+     form.email.addEventListener('change',(e)=>{
+        validEmail(this);
+     });
+
+     const validEmail = function(inputEmail){
+         let emailRegExp = new RegExp(
+            '^[a-zA-Z0-9.-_]+[@]{1}[a-zA-Z0-9.-_]+[.]{1}[a-z]{2,10}$', 'g'
+         )
+         let testEmail = emailRegExp.test(inputEmail.value);
+         
+        if(testEmail == true){
+           document.querySelector('small').innerHTML.style.red = 'Adresse valide'
+        }else{
+            document.querySelector('small').innerHTML = 'Adresse non valide'
+        }
+     }
+
+     
+     
+     
+     
+     
+     
+     let boutonEnvoi = document.getElementById('#bouton');
+     
+     let prenom = document.querySelector("#firstName")
      let nom = document.querySelector("#lastName");
      let prenomM = document.getElementById("prenom_manquand");
      let prenomValidation = /^[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?/;//regex pour validation du formulaire(prenom ici)
-    
+ 
      bouton.addEventListener("click",(e) =>{
         // let champsDeSaisis = new Formulaire (prenom,nom);
          if(prenom.validity.valueMissing){
