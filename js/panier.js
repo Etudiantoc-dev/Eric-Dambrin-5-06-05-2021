@@ -36,7 +36,7 @@
         }
          
      }
-     let boutonEnvoi = document.querySelector('#bouton_envoi');
+     let boutonEnvoi = document.getElementById('#bouton');
      
     
      let prenom = document.querySelector("#firstName");
@@ -44,7 +44,7 @@
      let prenomM = document.getElementById("prenom_manquand");
      let prenomValidation = /^[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?/;//regex pour validation du formulaire(prenom ici)
     
-     boutonEnvoi.addEventListener("click",(e) =>{
+     bouton.addEventListener("click",(e) =>{
         // let champsDeSaisis = new Formulaire (prenom,nom);
          if(prenom.validity.valueMissing){
              e.preventDefault();//Bloc l'envoi du formulaire..

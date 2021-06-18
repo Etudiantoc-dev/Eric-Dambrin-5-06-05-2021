@@ -174,15 +174,21 @@ a {
   margin-top: 40px;
 }
 
-#bouton_envoi {
-  color: black;
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-  /* border-style: ridge; */
+#bouton{
   background: #faebd780;
   border: 0.01px ridge;
+  
+  
+  
+  /* border-style: ridge; */
+
+  
+   /* padding: 2px 0px 2px 74px;  */
+    
+    /* width: max-content; */
+    /* margin: auto; */
 }
+
 #paiement form {
   background: #faebd78c;
   border-style: ridge;
