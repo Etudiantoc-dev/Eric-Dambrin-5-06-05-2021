@@ -54,19 +54,22 @@
             <div class="form_group">
               <label for="firstName">Prénom</label>
               <input type="text" class="form-control" id="firstName" placeholder="Prénom" required>
-              <span id = 'prenom_manquand'></span><br />
+              <span class ='erreur'></span>
             </div>
             <div class="form_group">
               <label for="lastName">Nom</label>
               <input type="text" class="form-control" id="lastName" placeholder="Nom" required>
+              <span class ='erreur'></span>
             </div>
             <div class="form_group">
               <label for="address">Adresse</label>
               <input type="text" class="form-control" id="address" placeholder="Adresse" required>
+              <span class ='erreur'></span>
             </div>
             <div class="form_group">
               <label for="city">Ville</label>
               <input type="text" class="form-control" id="city" placeholder="Ville" required>
+              <span class ='erreur'></span>
             </div>
             <div class="form_group">
               <label for="email">Adresse mail</label>
@@ -75,6 +78,7 @@
             </div>
             <div class="form_group">
             <input type="submit" value="Enregistrer" id="bouton">
+            <p id="erreur" style="color: orangered ;width:max-content;"></p>
           </div>
         </form>
        

@@ -11,9 +11,9 @@
      //
      const positionElement = document.querySelector("#produitChoisi");
      console.log(positionElement)
-     let structureProduitPanier = []
-     //Si le panier est vide : afficher panier vide :
+     let structureProduitPanier = [] 
      
+     //Si le panier est vide : afficher panier vide :
      if(produitLocalStorage === null){
          const panierVide =`<div class="container_panier_vide">Le panier est vide</div>`;
          positionElement.innerHTML = panierVide;
@@ -41,8 +41,9 @@
     
      let form = document.querySelector(".champ_a_remplir");
 
-     form.email.addEventListener('change',(e)=>{
+     form.email.addEventListener ('change',() =>{
         validEmail(this);
+        
      });
 
      const validEmail = function(inputEmail){
@@ -52,144 +53,40 @@
          let testEmail = emailRegExp.test(inputEmail.value);
          
         if(testEmail == true){
-           document.querySelector('small').innerHTML.style.red = 'Adresse valide'
+           document.querySelector('small').innerHTML = 'Adresse valide'
+           // adresse toujour indiqué non valide??
         }else{
             document.querySelector('small').innerHTML = 'Adresse non valide'
+            document.querySelector('small').style.color = 'red'
         }
      }
 
      
      
      
-     
-     
-     
      let boutonEnvoi = document.getElementById('#bouton');
      
-     let prenom = document.querySelector("#firstName")
-     let nom = document.querySelector("#lastName");
-     let prenomM = document.getElementById("prenom_manquand");
-     let prenomValidation = /^[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?/;//regex pour validation du formulaire(prenom ici)
- 
      bouton.addEventListener("click",(e) =>{
-        // let champsDeSaisis = new Formulaire (prenom,nom);
-         if(prenom.validity.valueMissing){
-             e.preventDefault();//Bloc l'envoi du formulaire..
-             prenomM.textContent = 'Prénom manquant';
-             prenomM.style.color = 'red';
-
-         }else if (prenomValidation.test(prenom.value) == false){
-             e.preventDefault()
-             prenomM.textContent = 'Format incorrect';
-             prenomM.style.color = 'orange';
-
-         }else{
-             
-         }
-         
-        
-    
-
-
-     })
-
-    
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// //Récuperation de la chaîne de requête dans l'url//
-// const queryString_url_id = window.location.search;  
-// console.log(queryString_url_id);
-
-
-
-// const urlSearchParams = new URLSearchParams(queryString_url_id);  
-// console.log(urlSearchParams);//affichage parametres
-
-// const id = urlSearchParams.get("id");//affichage ID sans le ?
-// console.log(id);
-
-// fetch('http://localhost:3000/api/cameras/' )//Ne trouve pas??
-// .then(response => response.json())
-// .then(item=>{
-//     console.log(item);
-//     let choixCamera = new Camera(item)
-//     document.querySelector("#produitChoisi").innerHTML += choixCamera.displayPanier();
-// })
-
-
-
-
-
-
-
-
-
-// let formulaire = document.querySelectorAll("#paiement");
-// let button = document.querySelector('#coordonnees')
-
-// class coordonnees{
-//     constructor(nom){
-//         this.nom  =  this.check(nom,2)
-//     }
-//     get Info(){//méthode
-//         //    return 'Nom : ${this.nom} || Prénom : ${this.prenom} || email : ${this.email}'//CELLE-CI NE MARCHE PAS??
-//            return "Nom :" + this.nom + "|| Prénom :" + this.prenom +" || Email :" + this.email; //Templates strings 
-//         }
-//         displayInConsole = () => {
-//             console.log(this.Info)
-//         }
-//         check(target,minLength){
-//             if(target==undefined || target.Length< minLength )
-//             {
-//                 (alert('Les champs ne sont pas remplies !'));
-//         }else{
-//             return target
-//         }
-//         }
-//     button = addEventListener("click", (event) => {
-    
-     
-    
-// })}
-// var Eric = new coordonnees("Dambrin", "", "e.dambrin@gmail.com");
-// var Aurelien = new coordonnees("Antonio", "Aurélien","aurelien.antonio@gmail.com");
-
-
-
-// Eric.displayInConsole();
-// Aurelien.displayInConsole();
-
-
-
        
+          let erreur;
+          let inputs= document.getElementsByTagName("input");
+          for(i=0 ; i < inputs.length ; i++){
+              
+            if(!inputs[i].value){
+                e.preventDefault();
+                 erreur = 'veuillez rentrez tous les champs'
+                
+          }}
+          if(erreur){
+            e.preventDefault();
+            document.getElementById("erreur").innerHTML = erreur
+        }else{
+            alert('Formulaire enregistré !');
+        }}
+        
+        )
     
         
     
-    
-    // if(confirm('êtes vous sur ?')){
-    //     location.href="index.html"
-    //     console.log(confirm)
-    // }
 
-
-// button = function(){
-//     if(confirm('êtes vous sur ?')){
-//         location.href="index.html"
-//     }
-// }
+        

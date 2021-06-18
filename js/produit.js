@@ -25,8 +25,10 @@ fetch('http://localhost:3000/api/cameras/' + id)
      let idImg = document.querySelector(".appareilProduit");
      console.log(idImg);
      
-     //sélection du bouton ajouter au panier :
+    //  sélection du bouton ajouter au panier :
      let btnSelection = document.querySelector("#btn");
+     // affichage du produit choisi sur la page produit:
+    
      let optionProduit = {
       image : camera.imageUrl,
       nom : camera.name,
