@@ -28,6 +28,7 @@ class Camera{
                    <select name="lentilles" id="lentilles">
                        ${this.displayLenses()}
                    </select>
+                   
          </form>
          
          
