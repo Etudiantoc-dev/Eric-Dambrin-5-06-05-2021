@@ -41,17 +41,18 @@
     
      let form = document.querySelector(".champ_a_remplir");
 
-     form.email.addEventListener ('change',() =>{
-        validEmail(this);
+     form.email.addEventListener ('change',(e) =>{
+         console.log(e.target.value)
+        validEmail(e.target.value);
         
      });
 
      const validEmail = function(inputEmail){
-         let emailRegExp = new RegExp(
-            '^[a-zA-Z0-9.-_]+[@]{1}[a-zA-Z0-9.-_]+[.]{1}[a-z]{2,10}$', 'g'
-         )
-         let testEmail = emailRegExp.test(inputEmail.value);
+         let emailRegExp = 
+            /^[a-zA-Z0-9.-_]+[@]{1}[a-zA-Z0-9.-_]+[.]{1}[a-z]{2,10}$/
          
+         let testEmail = emailRegExp.test(inputEmail);
+         console.log(testEmail)
         if(testEmail == true){
            document.querySelector('small').innerHTML = 'Adresse valide'
            // adresse toujour indiqué non valide??
@@ -68,7 +69,7 @@
      
      bouton.addEventListener("click",(e) =>{
        
-          let erreur;
+          let erreur; // JE NE COMPRENDS CETTE FAÇON D'ÉCRIRE...???
           let inputs= document.getElementsByTagName("input");
           for(i=0 ; i < inputs.length ; i++){
               
@@ -82,9 +83,32 @@
             document.getElementById("erreur").innerHTML = erreur
         }else{
             alert('Formulaire enregistré !');
-        }}
+        }})
         
-        )
+//         let inputs= document.getElementsByTagName("input");
+//         for(i=0 ; i < inputs.length ; i++){
+            
+//           if(!inputs[i].value){
+//               e.preventDefault();
+//               document.getElementById("erreur").innerHTML = "veuillez rentrez tous les champs"
+//               break;
+              
+//         }  
+//         } if(inputs[i] == true){
+//             return alert('Formulaire enregistré !');
+//     }
+// })
+        
+    
+            
+        
+    
+    
+       
+         
+ 
+        
+        
     
         
     
