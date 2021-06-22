@@ -52,32 +52,43 @@
             /^[a-zA-Z0-9.-_]+[@]{1}[a-zA-Z0-9.-_]+[.]{1}[a-z]{2,10}$/
          
          let testEmail = emailRegExp.test(inputEmail);
-         console.log(testEmail)
+         
         if(testEmail == true){
            document.querySelector('small').innerHTML = 'Adresse valide'
-           // adresse toujour indiqué non valide??
+           
         }else{
             document.querySelector('small').innerHTML = 'Adresse non valide'
             document.querySelector('small').style.color = 'red'
+        }
+     }
+     
+    
+      function validFormat() {
+        let format = document.getElementById("erreurformat");
+
+        if(format.length ==0){
+             document.getElementById("erreurformat").innerHTML = "mauvais format";
         }
      }
 
      
      
      
-     let boutonEnvoi = document.getElementById('#bouton');
+    //  let boutonEnvoi = document.getElementById('#bouton');
      
      bouton.addEventListener("click",(e) =>{
        
-          let erreur; // JE NE COMPRENDS CETTE FAÇON D'ÉCRIRE...???
+          let erreur; // = (let erreur == null ou undefined)
           let inputs= document.getElementsByTagName("input");
+          
           for(i=0 ; i < inputs.length ; i++){
               
             if(!inputs[i].value){
                 e.preventDefault();
                  erreur = 'veuillez rentrez tous les champs'
                 
-          }}
+          }
+        }
           if(erreur){
             e.preventDefault();
             document.getElementById("erreur").innerHTML = erreur
@@ -85,19 +96,23 @@
             alert('Formulaire enregistré !');
         }})
         
-//         let inputs= document.getElementsByTagName("input");
-//         for(i=0 ; i < inputs.length ; i++){
+        // let formats = document.getElementsByClassName("format");
+        // let minLenght = 2;
+        
+        // bouton.addEventListener("click",(e) =>{
+        //     e.preventDefault();
+        
+        // for (i=0 ; i<formats.length ; i++){
             
-//           if(!inputs[i].value){
-//               e.preventDefault();
-//               document.getElementById("erreur").innerHTML = "veuillez rentrez tous les champs"
-//               break;
-              
-//         }  
-//         } if(inputs[i] == true){
-//             return alert('Formulaire enregistré !');
-//     }
-// })
+        //     if(formats.length< minLenght){
+        //         let formats = format.innerHTML("Format incorrect");
+        //     }else{
+
+        //     }
+            
+        // }})
+        
+       
         
     
             
