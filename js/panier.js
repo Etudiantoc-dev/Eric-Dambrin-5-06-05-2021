@@ -42,8 +42,9 @@
      let form = document.querySelector(".champ_a_remplir");
 
      form.email.addEventListener ('change',(e) =>{
-         console.log(e.target.value)
+         
         validEmail(e.target.value);
+       
         
      });
 
@@ -55,7 +56,7 @@
          
         if(testEmail == true){
            document.querySelector('small').innerHTML = 'Adresse valide'
-           
+           document.querySelector('small').style.color = 'black'
         }else{
             document.querySelector('small').innerHTML = 'Adresse non valide'
             document.querySelector('small').style.color = 'red'
@@ -63,13 +64,30 @@
      }
      
     
-      function validFormat() {
-        let format = document.getElementById("erreurformat");
+   
+     form.addEventListener('change',(e)=>{
+        
+        validFormat(e.target.value);
 
-        if(format.length ==0){
-             document.getElementById("erreurformat").innerHTML = "mauvais format";
+     })
+     const validFormat = function (inputFormat) {
+         
+         let formatRexExp= /^[A-Za-z]{3,15}$/
+         let testFormat = formatRexExp.test(inputFormat);
+         
+       
+            if(testFormat != true){
+                document.querySelector(".format").innerHTML = "Format non-valide"
+            }else{
+               document.querySelector(".format").innerHTML = ""
+            } 
         }
-     }
+       
+     
+     
+     
+    
+   
 
      
      
@@ -96,21 +114,7 @@
             alert('Formulaire enregistré !');
         }})
         
-        // let formats = document.getElementsByClassName("format");
-        // let minLenght = 2;
         
-        // bouton.addEventListener("click",(e) =>{
-        //     e.preventDefault();
-        
-        // for (i=0 ; i<formats.length ; i++){
-            
-        //     if(formats.length< minLenght){
-        //         let formats = format.innerHTML("Format incorrect");
-        //     }else{
-
-        //     }
-            
-        // }})
         
        
         
