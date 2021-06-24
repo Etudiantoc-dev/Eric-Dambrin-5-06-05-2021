@@ -70,7 +70,7 @@
         validFormat(e.target.value);
 
      })
-     const validFormat = function (inputFormat) {
+     const validFormat = function (inputFormat) { // à améliorer //
          
          let formatRexExp= /^[A-Za-z]{3,15}$/
          let testFormat = formatRexExp.test(inputFormat);
@@ -83,16 +83,7 @@
             } 
         }
        
-     
-     
-     
-    
-   
-
-     
-     
-     
-    //  let boutonEnvoi = document.getElementById('#bouton');
+     //  let boutonEnvoi = document.getElementById('#bouton');
      
      bouton.addEventListener("click",(e) =>{
        
@@ -112,8 +103,47 @@
             document.getElementById("erreur").innerHTML = erreur
         }else{
             alert('Formulaire enregistré !');
-        }})
-        
+        }
+//--------------Récupération des donnés du formulaire ----------------------
+
+        const newUser = {
+            
+            nom : document.querySelector("#lastName").value,
+            prenom :document.querySelector("#firstName").value,
+            adresse : document.querySelector("#address").value,
+            ville : document.querySelector("#city").value,
+            email : document.querySelector("#email").value
+}
+//----------------Mettre les donnés du formulaire dans le localStorage-------------
+localStorage.setItem("newUser",JSON.stringify(newUser));
+
+// -----création de la variable contenant les produits du panier et les infos du formulaires--------
+let infosServeur = {
+    produitLocalStorage,
+    newUser
+}
+// --------Envoi des informations du panier avec la méthode Post vers le serveur-------
+
+fetch("https://jsonplaceholder.typicode.com/users",{
+ method : "POST",
+ body : JSON.stringify(infosServeur),
+ headers: {"Content-type": "application/json; charset=UTF-8"}
+
+ })//Pour voir la commande dans la console
+ .then(response => response.json()) 
+ .then(json => console.log(json))
+ .catch(err => console.log(err));
+
+ 
+})
+
+
+     
+    
+    
+
+
+
         
         
        

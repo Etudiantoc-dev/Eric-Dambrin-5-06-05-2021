@@ -52,6 +52,7 @@ fetch('http://localhost:3000/api/cameras/' + id)
         lentilles: idForm.value,
         quantite: 1
       }
+      
       // S'il y a dejà des produits enregistrés dans le local storage
       if (produitLocalStorage) {
         produitLocalStorage.push(optionProduit);
