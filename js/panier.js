@@ -74,15 +74,11 @@ Array.from(form.querySelectorAll('input[type="text"')).forEach(elt =>{
 })
 
 const validFormat = function (input) { 
-    // ne s'inscrit que sous le prenom mais annalyse l'ensemble?? //
-
-    //let formatRexExp = /^[A-Za-z]{3,15}$/
-    //expression regulière pour le nombre de carcactères acceptés
-    //let testFormat = formatRexExp.test(inputFormat);
-    //console.log(testFormat)
 
     if (input.value.trim() === '') {
+        //trim permet de prendre en compte lorsque l'on fait une barre espace n'est pas une valeur inscrite..
         console.log(input.parentNode);
+        //parentNode permet de dire si le format est bon ou pas sous le champs concerné
         input.parentNode.querySelector(".format").innerHTML = "Format non-valide"
         return false
     } else {
@@ -104,7 +100,8 @@ bouton.addEventListener("click", (e) => {
     Array.from(form.querySelectorAll('input[type="text"')).forEach(elt =>{
         
             if(!validFormat(elt)){
-                alert(elt.name + " est vide")
+        // demander si sans les return à la function de validFormat celà fonctionne??
+                alert("Le champ " + elt.placeholder + " est vide")
                 isOk = false;
             }
         
@@ -154,8 +151,6 @@ bouton.addEventListener("click", (e) => {
     // --------Envoi des informations du panier avec la méthode Post vers le serveur-------
         console.log(infosServeur);
      fetch("http://localhost:3000/api/cameras/order", {
-         //Pourquoi cette adresse?? comment définir l'addresse??
-         //comment avoir une ID de la commande
         method: "POST",
         body: JSON.stringify(infosServeur),
         headers: { "Content-type": "application/json; charset=UTF-8" },
@@ -165,7 +160,7 @@ bouton.addEventListener("click", (e) => {
         .then(response => response.json())
         .then(json => console.log(json))
         .catch(err => console.log(err));
-// Je ne vois rien dans la console??
+
         
 })
 
