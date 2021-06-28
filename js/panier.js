@@ -61,33 +61,57 @@ const validEmail = function (inputEmail) {
         document.querySelector('small').innerHTML = 'Adresse non valide'
         document.querySelector('small').style.color = 'red'
     }
+    return testEmail
 }
 
 
-
-form.addEventListener('change', (e) => {
-
-    validFormat(e.target.value);
-
+Array.from(form.querySelectorAll('input[type="text"')).forEach(elt =>{
+    elt.addEventListener('focusout', (e) => {
+        console.log(e.target.value)
+        validFormat(e.target);
+    
+    })
 })
-const validFormat = function (inputFormat) { 
+
+const validFormat = function (input) { 
     // ne s'inscrit que sous le prenom mais annalyse l'ensemble?? //
 
-    let formatRexExp = /^[A-Za-z]{3,15}$ /
+    //let formatRexExp = /^[A-Za-z]{3,15}$/
     //expression regulière pour le nombre de carcactères acceptés
-    let testFormat = formatRexExp.test(inputFormat);
+    //let testFormat = formatRexExp.test(inputFormat);
+    //console.log(testFormat)
 
-
-    if (testFormat != true) {
-        document.querySelector(".format").innerHTML = "Format non-valide"
+    if (input.value.trim() === '') {
+        console.log(input.parentNode);
+        input.parentNode.querySelector(".format").innerHTML = "Format non-valide"
+        return false
     } else {
-        document.querySelector(".format").innerHTML = ""
+        input.parentNode.querySelector(".format").innerHTML = ""
     }
+    return true;
 }
 
 
 
 bouton.addEventListener("click", (e) => {
+    e.preventDefault();
+    let form = document.querySelector(".champ_a_remplir");
+    if(!validEmail(form.email.value)){
+        alert("erreur email");
+        return false
+    }
+    let isOk = true;
+    Array.from(form.querySelectorAll('input[type="text"')).forEach(elt =>{
+        
+            if(!validFormat(elt)){
+                alert(elt.name + " est vide")
+                isOk = false;
+            }
+        
+    })
+    if(!isOk){
+        return false
+    }
 
     let erreur; // = (let erreur == null ou undefined)
     let inputs = document.getElementsByTagName("input");
@@ -110,25 +134,26 @@ bouton.addEventListener("click", (e) => {
     }
     //--------------Récupération des donnés du formulaire ----------------------
 
-    const newUser = {
+    const contact = {
 
-        nom: document.querySelector("#lastName").value,
-        prenom: document.querySelector("#firstName").value,
-        adresse: document.querySelector("#address").value,
-        ville: document.querySelector("#city").value,
+        lastName: document.querySelector("#lastName").value,
+        firstName: document.querySelector("#firstName").value,
+        address: document.querySelector("#address").value,
+        city: document.querySelector("#city").value,
         email: document.querySelector("#email").value
     }
     //----------------Mettre les donnés du formulaire dans le localStorage-------------
-    localStorage.setItem("newUser", JSON.stringify(newUser));
-
+    localStorage.setItem("newUser", JSON.stringify(contact));
+    let products = [];
+    produitLocalStorage.forEach(produit => products.push(produit.id))
     // -----création de la variable contenant les produits du panier et les infos du formulaires--------
     let infosServeur = {
-        produitLocalStorage,
-        newUser
+        contact,
+        products
     }
     // --------Envoi des informations du panier avec la méthode Post vers le serveur-------
-
-     fetch("https://jsonplaceholder.typicode.com/users", {
+        console.log(infosServeur);
+     fetch("http://localhost:3000/api/cameras/order", {
          //Pourquoi cette adresse?? comment définir l'addresse??
          //comment avoir une ID de la commande
         method: "POST",
