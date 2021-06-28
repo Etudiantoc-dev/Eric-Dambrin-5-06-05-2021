@@ -58,14 +58,11 @@ fetch('http://localhost:3000/api/cameras/' + id)
         produitLocalStorage.push(optionProduit);
         localStorage.setItem("produit", JSON.stringify(produitLocalStorage))
         console.log(produitLocalStorage)
-
-
         return (confirm("Voulez-vous que La sélection soit enregistré dans votre panier ?"));
       }
       //S'il n'y a pas de produit enregistré dans le local storage
       else {
         produitLocalStorage = []
-        console.log(produitLocalStorage);
         produitLocalStorage.push(optionProduit);
         localStorage.setItem("produit", JSON.stringify(produitLocalStorage))
         return (confirm("Voulez-vous que La sélection soit enregistré dans votre panier ?"));
