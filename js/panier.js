@@ -65,12 +65,12 @@ const validEmail = function (inputEmail) {
 }
 
 
-Array.from(form.querySelectorAll('input[type="text"')).forEach(elt =>{
-    elt.addEventListener('focusout', (e) => {
-        console.log(e.target.value)
-        validFormat(e.target);
+Array.from(form.querySelectorAll('input[type="text"')).forEach(elt =>{// Je pense que tout ce code ne sert à rien??
+    elt.addEventListener('focusout', (e) => {// Je pense que tout ce code ne sert à rien??
+        console.log(e.target.value)// Je pense que tout ce code ne sert à rien??
+        validFormat(e.target);//Je ne comprend pas??// Je pense que tout ce code ne sert à rien??
     
-    })
+    }) // Je pense que tout ce code ne sert à rien??
 })
 
 const validFormat = function (input) { 
@@ -86,7 +86,18 @@ const validFormat = function (input) {
     }
     return true;
 }
+//Récupération des prix des produits contenus dans le panier :
+let prixDeLaCommande= [];
+for(i=0 ; i<produitLocalStorage.length ; i++){
+    
+prixDeLaCommande.push(produitLocalStorage[i].prix)
 
+    // console.log(prixDeLaCommande);
+}
+// Addition pour obtenir prix total du panier avec la méthode reduce :
+
+const reducer = (accumulator,currentValue)=> accumulator + currentValue
+// console.log(prixDeLaCommande.reduce(reducer));
 
 
 bouton.addEventListener("click", (e) => {
@@ -102,7 +113,7 @@ bouton.addEventListener("click", (e) => {
             if(!validFormat(elt)){
         // demander si sans les return à la function de validFormat celà fonctionne??
                 alert("Le champ " + elt.placeholder + " est vide")
-                isOk = false;
+                isOk = false;// Je comprend pas les isOk??
             }
         
     })
@@ -129,6 +140,8 @@ bouton.addEventListener("click", (e) => {
         alert('Formulaire enregistré !');
 
     }
+   
+    
     //--------------Récupération des donnés du formulaire ----------------------
 
     const contact = {
@@ -142,27 +155,69 @@ bouton.addEventListener("click", (e) => {
     //----------------Mettre les donnés du formulaire dans le localStorage-------------
     localStorage.setItem("newUser", JSON.stringify(contact));
     let products = [];
-    produitLocalStorage.forEach(produit => products.push(produit.id))
+    produitLocalStorage.forEach(conne=> products.push(conne.id))
     // -----création de la variable contenant les produits du panier et les infos du formulaires--------
     let infosServeur = {
         contact,
         products
     }
+    
     // --------Envoi des informations du panier avec la méthode Post vers le serveur-------
-        console.log(infosServeur);
-     fetch("http://localhost:3000/api/cameras/order", {
+       
+     const promiseCommande = fetch("http://localhost:3000/api/cameras/order", {
         method: "POST",
         body: JSON.stringify(infosServeur),
         headers: { "Content-type": "application/json; charset=UTF-8" },
         
     })
-    //Pour voir la commande dans la console
-        .then(response => response.json())
-        .then(json => console.log(json))
-        .catch(err => console.log(err));
+    //Pour voir la commande dans la console :
 
-        
+    promiseCommande.then(async(response)=>{
+        try {
+            
+            const contenu = await response.json();
+            console.log(contenu)
+            localStorage.setItem("orderId",contenu.orderId) //id de la commande dans le local storage
+            localStorage.setItem('prixDeLaCommande',prixDeLaCommande.reduce(reducer));
+        } 
+        catch (error) {
+            
+            console.log(error)
+        }
+    })
+    // prix total de la commande :
+
+  
+
+    // Envoyer commande dans la page confirmation commande :
+
+  window.location = "confirmation commande.html";
+  
+
+
+//     let btnEnregistrer = document.querySelector("#btn");
+//     btnSelection.addEventListener("click", (event) => {
+//         event.preventDefault()
+// let commandeLocalStorage = localStorage.getItem("commande") ? JSON.parse(localStorage.getItem("commande")) : [];
+    
+    
+    
+        // .then(response => response.json())
+        // .then(json => console.log(json))
+        // .catch(err => console.log(err));
+    
+       
 })
+
+
+
+
+
+
+
+
+
+
 
 
 

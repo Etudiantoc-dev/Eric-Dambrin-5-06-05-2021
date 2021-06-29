@@ -1,16 +1,18 @@
-//Récuperation de la chaîne de requête dans l'url
-const commande_id = localStorage.getItem()
-console.log(commande_id);
+//récupération de l'id du serveur dans le local storage :
 
-//DECLARATION DE nouveau de la variable "produitLocalStorage" dans laquelle on met les key et les values qui sont dans le local storage
-// let user = JSON.parse(localStorage.getItem("produit"));
-//.. JSON.parse c'est pour convertir les données format JSON qui sont dans le local storage en objet javascript
-//  console.log(user);
+let orderId = localStorage.getItem("orderId")
+console.log(`idCommande : ${orderId}`);
 
-//  fetch('http://localhost:3000/api/cameras/' + id)
-//   .then(response => response.json())
-//   .then(item => {
-//     // console.log(item);
-//     camera = new Camera(item)
-//     document.querySelector(".articles").innerHTML += camera.displayProduit();
-//   })
+
+//recupération du prix de la commande :
+let prixDeLaCommande = localStorage.getItem("prixDeLaCommande");
+
+//Affichage des infos sur la page :
+
+   //------Sélection DOM pour position structure-------
+const affichageCommande = document.querySelector("#container_commande").innerHTML +=`<div class="articles"><h3>Merci pour votre commande !</h3>
+<h4>Nous vous confirmons votre commande avec le numéro suivant : ${orderId}</h4>
+<h4>Le montant est de : ${prixDeLaCommande} €uros.</h4> </div>`;
+
+
+

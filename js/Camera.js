@@ -16,7 +16,7 @@ class Camera{
                         </div></a>` ; 
     }
     displayProduit (){
-        // console.log(this)
+        
         return `<div class="appareilProduit">
                     <div class= "photos"><img src="${this.imageUrl}"></div>
                     <h5 class="name">${this.name}</h5> <div class="prixProduit">${this.price/100} €</div>
@@ -48,6 +48,12 @@ class Camera{
             option += `<option>${lense}</option>`;
         })
         return option
+    }
+    displayCommande(){
+        return  `
+        <h3>Merci pour votre commande !</h3>
+        <h4>Nous vous confirmons votre commande avec le numéro suivant :${this.orderId}</h4>
+        <h4>Le montant est de : </h4>`
     }
     
     
