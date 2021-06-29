@@ -11,7 +11,7 @@ let prixDeLaCommande = localStorage.getItem("prixDeLaCommande");
 
    //------Sélection DOM pour position structure-------
 const affichageCommande = document.querySelector("#container_commande").innerHTML +=`<div class="articles"><h3>Merci pour votre commande !</h3>
-<h4>Nous vous confirmons votre commande avec le numéro suivant : ${orderId}</h4>
+<h4>Nous vous confirmons votre commande numéro: ${orderId}</h4>
 <h4>Le montant est de : ${prixDeLaCommande} €uros.</h4> </div>`;
 
 
