@@ -6,14 +6,14 @@ body {
   background-size: cover;
   width: 100%;
   margin: auto;
-  flex-wrap: wrap;
+  
   
 }
-#bloc_page{
+/* #bloc_page{
   margin: auto;
   width: 100%;
   
-}
+} */
 
 header {
   width: 100%;
@@ -87,7 +87,7 @@ a {
   box-shadow: 2px 2px rgb(45 30 30);
   /* width: 100%; */
 }
-/* PAGE PRODUIT*/
+/*--------------------------- PAGE PRODUIT---------------------------*/
 .option {
   background: #faebd7cf;
   /* margin-top: 20px; */
@@ -195,7 +195,7 @@ a {
 }
 
 /* ----------Style PAge confirmation commande------------------ */
-#container_confirmation_commande{
+#container_commande{
   
   border: 2px solid brown;
   margin: auto;
@@ -206,7 +206,7 @@ a {
 
 @media (min-width: 768px) and (max-width: 1439px) {
   
-  /*PAGE INDEX*/
+  /*----------------------------PAGE INDEX------------------------*/
   #container .appareil_1,
   .appareil_2,
   .appareil_3,
@@ -224,35 +224,35 @@ a {
     /* height: 200px; */
     /* margin-left: 12.5%; */
   }
-  /* .un_deux_trois {
+  .un_deux_trois {
     display: flex;
     justify-content: space-around;
     width: 100%;
-  } */
-  /*PAGE PRODUIT*/
+  }
+  /*------------------------PAGE PRODUIT-----------------------------*/
   
-
+/* 
   #container_page_produit img {
     height: 42vh;
     width: 75%;
-  }
-  #container_page_produit .description_produit {
+  } */
+  /* #container_page_produit .description_produit {
     margin-top: 112px;
     width: 51%;
     /* margin-left: 270px; */
-    display: flex;
+    /* display: flex;
     justify-content: center;
     margin: auto;
-  }
-  #container_page_produit label {
+  } */ 
+  /* #container_page_produit label {
     margin-top: 80px;
     display: flex;
     justify-content: center;
     margin: auto;
     margin-top: 220px;
-  }
-}
-@media (min-width: 768px) {
+  } */
+
+
  
   #container .appareil_1,
   .appareil_2,
@@ -276,7 +276,7 @@ a {
     margin-top: 75px;
     margin-top: 100px;
   } 
-}
+
 @media (min-width: 1440px){
   /* STYLE POUR PAGE PANIER */
 
@@ -285,5 +285,6 @@ a {
   flex-direction: initial;
   justify-content: space-around;
   margin: auto;
+}
 }
 }
