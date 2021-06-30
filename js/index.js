@@ -1,3 +1,4 @@
+//----Récupération des ressources sur le réseau et son affichage--------//
 
 fetch('http://localhost:3000/api/cameras')
 .then(response => response.json())

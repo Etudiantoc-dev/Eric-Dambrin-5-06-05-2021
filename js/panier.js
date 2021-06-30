@@ -1,14 +1,8 @@
-
-
-
-//DECLARATION DE nouveau de la variable "produitLocalStorage" dans laquelle on met les key et les values qui sont dans le local storage
+//Récupération des informations du produit selectionné envoyé dans le local storage
 let produitLocalStorage = JSON.parse(localStorage.getItem("produit"));
-//.. JSON.parse c'est pour convertir les données format JSON qui sont dans le local storage en objet javascript
 
+                //.............Affichage produits panier..............//
 
-
-//.............Affichage produits panier..............//
-//
 const positionElement = document.querySelector("#produitChoisi");
 
 let structureProduitPanier = []
@@ -30,8 +24,8 @@ if (produitLocalStorage === null) {
         <p class="lentilles">Taille de la lentille : ${produitLocalStorage[i].lentilles} </p></div>`
 
 
-    }
-    if (i == produitLocalStorage.length) { //Pour mettre l'ensemble des produits du panier visible sur la page
+    }//Pour mettre l'ensemble des produits du panier visible sur la page
+    if (i == produitLocalStorage.length) { 
         positionElement.innerHTML = structureProduitPanier;
     }
 
