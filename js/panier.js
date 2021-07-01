@@ -75,7 +75,7 @@ const validFormat = function (input) {
 
         //parentNode permet de dire si le format est bon ou pas SOUS le champs concerné
         input.parentNode.querySelector(".format").innerHTML = "Format non-valide"
-        return false
+        return false;
     } else {
         input.parentNode.querySelector(".format").innerHTML = ""
     }
@@ -93,7 +93,7 @@ for (i = 0; i < produitLocalStorage.length; i++) {
 const reducer = (accumulator, currentValue) => accumulator + currentValue
 // console.log(prixDeLaCommande.reduce(reducer));
 
-
+//Ecoute au click du bouton de toutes les valeurs des champs pour valider le formulaire
 bouton.addEventListener("click", (e) => {
     e.preventDefault();
     let form = document.querySelector(".champ_a_remplir");
@@ -105,9 +105,9 @@ bouton.addEventListener("click", (e) => {
     Array.from(form.querySelectorAll('input[type="text"')).forEach(elt => {
 
         if (!validFormat(elt)) {
-            // demander si sans les return à la function de validFormat celà fonctionne??
+            
             alert("Le champ " + elt.placeholder + " est vide")
-            isOk = false;// Je comprend pas les isOk??
+            isOk = false;
         }
 
     })
@@ -115,28 +115,28 @@ bouton.addEventListener("click", (e) => {
         return false
     }
 
-    let erreur; // = (let erreur == null ou undefined)
-    let inputs = document.getElementsByTagName("input");
+    // let erreur; // = (let erreur == null ou undefined)
+    // let inputs = document.getElementsByTagName("input");
 
-    for (i = 0; i < inputs.length; i++) {
+    // for (i = 0; i < inputs.length; i++) {
 
-        if (!inputs[i].value) {
-            e.preventDefault();
-            erreur = 'veuillez rentrez tous les champs'
+    //     if (!inputs[i].value) {
+    //         e.preventDefault();
+    //         erreur = 'veuillez rentrez tous les champs'
 
-        }
-    }
-    if (erreur) {
-        e.preventDefault();
-        document.getElementById("erreur").innerHTML = erreur
-    } else {
+    //     }
+    // }
+    // if (erreur) {
+    //     e.preventDefault();
+    //     document.getElementById("erreur").innerHTML = erreur
+    // } else {
 
-        }
+    //     }
 
 
     //--------------Récupération des donnés du formulaire ----------------------
 
-    const contact = {
+    const contact = { // Nom objet "contact" et nom des champs exigés par le cahier des charges
 
         lastName: document.querySelector("#lastName").value,
         firstName: document.querySelector("#firstName").value,
@@ -146,12 +146,14 @@ bouton.addEventListener("click", (e) => {
     }
     //----------------Mettre les donnés du formulaire dans le localStorage-------------
     localStorage.setItem("newUser", JSON.stringify(contact));
-    let products = [];
-    produitLocalStorage.forEach(produit => products.push(produit.id))
+    
+    let products = []; // Array de style product_id exigé par le cahier des charge
+    produitLocalStorage.forEach(produit => products.push(produit.id));
+    
     // -----création de la variable contenant les produits du panier et les infos du formulaires--------
     let infosServeur = {
         contact,
-        products
+        products // Si pas de S à PRODUCT le ID de la commande n'est pas défini???
     }
 
     // --------Envoi des informations du panier avec la méthode Post vers le serveur-------
@@ -162,7 +164,7 @@ bouton.addEventListener("click", (e) => {
         headers: { "Content-type": "application/json; charset=UTF-8" },
 
     })
-    //Pour voir la commande dans la console :
+ 
 
     promiseCommande.then(async (response) => {
         try {
@@ -170,27 +172,20 @@ bouton.addEventListener("click", (e) => {
             const contenu = await response.json();
             console.log(contenu)
             localStorage.setItem("orderId", contenu.orderId) //id de la commande dans le local storage
-            localStorage.setItem('prixDeLaCommande', prixDeLaCommande.reduce(reducer));
+            localStorage.setItem('prixDeLaCommande', prixDeLaCommande.reduce(reducer));//resultat prix de la commande
         }
-        catch (error) {
+        catch (err) {
 
-            console.log(error)
+            console.log(err)
         }
     })
-    // prix total de la commande :
+    
 
-
-
-    // Envoyer commande dans la page confirmation commande :
+// Pour aller sur la page confirmation commande :
 
     window.location = "confirmation commande.html";
 
 
-
-    //     let btnEnregistrer = document.querySelector("#btn");
-    //     btnSelection.addEventListener("click", (event) => {
-    //         event.preventDefault()
-    // let commandeLocalStorage = localStorage.getItem("commande") ? JSON.parse(localStorage.getItem("commande")) : [];
 
 
 
