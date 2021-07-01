@@ -59,15 +59,6 @@ const validEmail = function (inputEmail) {
     return testEmail
 }
 
-
-Array.from(form.querySelectorAll('input[type="text"')).forEach(elt => {// Je pense que tout ce code ne sert à rien??
-    elt.addEventListener('focusout', (e) => {// Je pense que tout ce code ne sert à rien??
-        console.log(e.target.value)// Je pense que tout ce code ne sert à rien??
-        validFormat(e.target);//Je ne comprend pas??// Je pense que tout ce code ne sert à rien??
-
-    }) // Je pense que tout ce code ne sert à rien??
-})
-
 const validFormat = function (input) {
 
     if (input.value.trim() === '') {
@@ -114,24 +105,6 @@ bouton.addEventListener("click", (e) => {
     if (!isOk) {
         return false
     }
-
-    // let erreur; // = (let erreur == null ou undefined)
-    // let inputs = document.getElementsByTagName("input");
-
-    // for (i = 0; i < inputs.length; i++) {
-
-    //     if (!inputs[i].value) {
-    //         e.preventDefault();
-    //         erreur = 'veuillez rentrez tous les champs'
-
-    //     }
-    // }
-    // if (erreur) {
-    //     e.preventDefault();
-    //     document.getElementById("erreur").innerHTML = erreur
-    // } else {
-
-    //     }
 
 
     //--------------Récupération des donnés du formulaire ----------------------
