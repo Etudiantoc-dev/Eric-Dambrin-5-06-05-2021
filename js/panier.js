@@ -1,4 +1,4 @@
-//Récupération des informations du produit selectionné envoyé dans le local storage
+//Nouvelle déclaration de la même variable(=produit.js) pour récupérer des informations du produit selectionné envoyé dans le local storage
 let produitLocalStorage = JSON.parse(localStorage.getItem("produit"));
 
 //.............Affichage produits panier..............//
@@ -16,18 +16,19 @@ if (produitLocalStorage === null) {
 } else {
 
     for (i = 0; i < produitLocalStorage.length; i++) {
+        
 
-        structureProduitPanier = structureProduitPanier +
+        structureProduitPanier += 
             `<div class="choixProduit">
         <class="image_choix_produit"><img src="${produitLocalStorage[i].image}">
         <h5 class="name">${produitLocalStorage[i].nom}</h5> <div class="prixProduit">${produitLocalStorage[i].prix} €</div>
         <p class="lentilles">Taille de la lentille : ${produitLocalStorage[i].lentilles} </p></div>`
 
 
-    }//Pour mettre l'ensemble des produits du panier visible sur la page
-    if (i == produitLocalStorage.length) {
-        positionElement.innerHTML = structureProduitPanier;
-    }
+    }//Pour afficher autant de produit que l'on veut dans le panier :
+     if (i == produitLocalStorage.length) {
+         positionElement.innerHTML = structureProduitPanier;
+     }
 
 }
 
@@ -40,7 +41,7 @@ form.email.addEventListener('change', (e) => {
 
     validEmail(e.target.value);// l'élément 'target' déclenche l'évènement à sa juste valeur 'value'
     // Demander plus d'explications...??
-
+    //POURQUOI VALIDFORMAT N'EST PAS DANS L'ECOUTE???
 });
 // Validation de l'Email selon une expression régulière
 const validEmail = function (inputEmail) {

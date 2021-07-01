@@ -1,6 +1,6 @@
 
-let idForm = null;  // Est-ce que ces déclaration sont nécessaires??
-let camera = null;
+// let idForm = null;  // Est-ce que ces déclaration sont nécessaires??
+// let camera = null;
 
 //----Récuperation de la chaîne de requête dans l'url----//
 
@@ -37,7 +37,7 @@ fetch('http://localhost:3000/api/cameras/' + id)
       event.preventDefault()
       //Déclaration de cette varaible dans laquelle on met les key et les values du local storage
       //JSON.parse c'est pour convertir les données format JSON qui sont dans le local storage en objet javascript
-      let produitLocalStorage = localStorage.getItem("produit") ? JSON.parse(localStorage.getItem("produit")) : [];//Condition ternaire
+      let produitLocalStorage = localStorage.getItem("produit") ? JSON.parse(localStorage.getItem("produit")): [] //Condition ternaire
 
       //Déclaration de cette variable représentant un tableau des informations tirés de la class Cameras
       let optionProduit = {
@@ -59,12 +59,12 @@ fetch('http://localhost:3000/api/cameras/' + id)
         return (confirm("Voulez-vous que La sélection soit enregistré dans votre panier ?"));
       }
       //S'il n'y a pas de produits enregistrés dans le local storage
-      else {
-        produitLocalStorage = []
-        produitLocalStorage.push(optionProduit);
-        localStorage.setItem("produit", JSON.stringify(produitLocalStorage))
-        return (confirm("Voulez-vous que La sélection soit enregistré dans votre panier ?"));
-      }
+      // else {
+      //   produitLocalStorage = [] // J'ai l'impression que ce ELSE ne sert à rien???
+      //   produitLocalStorage.push(optionProduit);
+      //   localStorage.setItem("produit", JSON.stringify(produitLocalStorage))
+      //   return (confirm("Voulez-vous que La sélection soit enregistré dans votre panier ?"));
+      // }
     })
   })
 
