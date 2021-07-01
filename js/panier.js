@@ -105,7 +105,7 @@ bouton.addEventListener("click", (e) => {
     Array.from(form.querySelectorAll('input[type="text"')).forEach(elt => {
 
         if (!validFormat(elt)) {
-            
+
             alert("Le champ " + elt.placeholder + " est vide")
             isOk = false;
         }
@@ -146,10 +146,10 @@ bouton.addEventListener("click", (e) => {
     }
     //----------------Mettre les donnés du formulaire dans le localStorage-------------
     localStorage.setItem("newUser", JSON.stringify(contact));
-    
+
     let products = []; // Array de style product_id exigé par le cahier des charge
     produitLocalStorage.forEach(produit => products.push(produit.id));
-    
+
     // -----création de la variable contenant les produits du panier et les infos du formulaires--------
     let infosServeur = {
         contact,
@@ -164,7 +164,7 @@ bouton.addEventListener("click", (e) => {
         headers: { "Content-type": "application/json; charset=UTF-8" },
 
     })
- 
+
 
     promiseCommande.then(async (response) => {
         try {
@@ -179,9 +179,9 @@ bouton.addEventListener("click", (e) => {
             console.log(err)
         }
     })
-    
 
-// Pour aller sur la page confirmation commande :
+
+    // Pour aller sur la page confirmation commande :
 
     window.location = "confirmation commande.html";
 
