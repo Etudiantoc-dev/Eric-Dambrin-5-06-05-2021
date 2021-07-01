@@ -1,14 +1,16 @@
 body {
   margin: 0;
   padding: 0;
-  background: url(images/pexels-wouter-de-jong-571169.jpg) no-repeat center
-    fixed;
+  background: url(images/pexels-wouter-de-jong-571169.jpg)  no-repeat center
+    fixed ;
   background-size: cover;
   width: 100%;
   margin: auto;
   
-  
 }
+  
+
+
 /* #bloc_page{
   margin: auto;
   width: 100%;
@@ -82,7 +84,7 @@ a {
 .appareil_5 {
   /* height: 100px; */
   margin: auto;
-  background: #868d8d61;
+  background: #dfe0e0;
   margin: 10px;
   box-shadow: 2px 2px rgb(45 30 30);
   /* width: 100%; */
@@ -90,6 +92,9 @@ a {
 /*--------------------------- PAGE PRODUIT---------------------------*/
 .option {
   background: #faebd7cf;
+  padding-top: 10px;
+  width: 80%;
+  margin: auto;
   /* margin-top: 20px; */
 }
 #container_page_produit h5,
@@ -116,6 +121,14 @@ select {
 #container .prix, .name, .description_appareil{
   color: black;
   margin-left: 10px;
+}
+#write_produit{
+ 
+ background:#dfe0e0 ;
+ width: 80%;
+ margin: auto;
+ padding-top: 10px;
+ padding-bottom: 10px;
 }
 
 
@@ -204,7 +217,7 @@ a {
   height: 50vh;
 }
 
-@media (min-width: 768px) and (max-width: 1439px) {
+@media (min-width: 1024px) {
   
   /*----------------------------PAGE INDEX------------------------*/
   #container .appareil_1,

@@ -60,14 +60,16 @@ const validEmail = function (inputEmail) {
     return testEmail
 }
 
+
 const validFormat = function (input) {
 
     if (input.value.trim() === '') {
         //trim permet de prendre en compte lorsque l'on fait une barre espace que ce n'est pas une valeur inscrite dans le champs au même titre qu'une lettre..
 
         //parentNode permet de dire si le format est bon ou pas SOUS le champs concerné
-        input.parentNode.querySelector(".format").innerHTML = "Format non-valide"
-        return false;
+        input.parentNode.querySelector(".format").innerHTML = "Champ manquant"
+        input.parentNode.querySelector(".format").style.color = "red"
+        return false; //Cela empêche d'enlever "Champ manquant" quand on le rempli??
     } else {
         input.parentNode.querySelector(".format").innerHTML = ""
     }

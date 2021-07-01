@@ -22,10 +22,11 @@ class Camera {
   displayProduit() {
     return `<div class="appareilProduit">
                     <div class= "photos"><img src="${this.imageUrl}"></div>
+                    <div id="write_produit">
                     <h5 class="name">${this.name
-      }</h5> <div class="prixProduit">${this.price / 100} €</div>
+      } </h5><div class="prixProduit">${this.price / 100} €</div>
                     <p class="description_produit">${this.description}</p></div>
-                    
+                    </div>
                     <div class='option'>
                     <form> 
                     <label for="option_lentilles"> Taille de la lentille : </label>
