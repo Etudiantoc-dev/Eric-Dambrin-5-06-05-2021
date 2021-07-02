@@ -16,9 +16,9 @@ if (produitLocalStorage === null) {
 } else {
 
     for (i = 0; i < produitLocalStorage.length; i++) {
-        
 
-        structureProduitPanier += 
+
+        structureProduitPanier +=
             `<div class="choixProduit">
         <class="image_choix_produit"><img src="${produitLocalStorage[i].image}">
         <h5 class="name">${produitLocalStorage[i].nom}</h5> <div class="prixProduit">${produitLocalStorage[i].prix} €</div>
@@ -26,9 +26,9 @@ if (produitLocalStorage === null) {
 
 
     }//Pour afficher autant de produit que l'on veut dans le panier :
-     if (i == produitLocalStorage.length) {
-         positionElement.innerHTML = structureProduitPanier;
-     }
+    if (i == produitLocalStorage.length) {
+        positionElement.innerHTML = structureProduitPanier;
+    }
 
 }
 
@@ -54,7 +54,7 @@ const validEmail = function (inputEmail) {
         document.querySelector('small').innerHTML = 'Ok'
         document.querySelector('small').style.color = 'black'
     } else {
-        document.querySelector('small').innerHTML = 'Adresse non valide'
+        document.querySelector('small').innerHTML = 'Format Email inconnu'
         document.querySelector('small').style.color = 'red'
     }
     return testEmail
@@ -75,24 +75,26 @@ const validFormat = function (input) {
     }
     return true;
 }
-//Récupération des prix des produits contenus dans le panier :
+//--------------Récupération des prix des produits contenus dans le panier-------//
+    
 let prixDeLaCommande = [];
 for (i = 0; i < produitLocalStorage.length; i++) {
 
     prixDeLaCommande.push(produitLocalStorage[i].prix)
-
-    console.log(prixDeLaCommande);
+console.log(prixDeLaCommande);
+   
 }
 // Addition pour obtenir prix total du panier avec la méthode reduce :
-const reducer = (accumulator, currentValue) => accumulator + currentValue
-// console.log(prixDeLaCommande.reduce(reducer));
+const prixTotal = (accumulator, currentValue) => accumulator + currentValue
+console.log(prixDeLaCommande.reduce(prixTotal));
+
 
 //Ecoute au click du bouton de toutes les valeurs des champs pour valider le formulaire
 bouton.addEventListener("click", (e) => {
     e.preventDefault();
     let form = document.querySelector(".champ_a_remplir");
     if (!validEmail(form.email.value)) {
-        alert("erreur email");
+        // alert("erreur email");
         return false
     }
     let isOk = true;
@@ -100,7 +102,9 @@ bouton.addEventListener("click", (e) => {
 
         if (!validFormat(elt)) {
 
-            alert("Le champ " + elt.placeholder + " est vide")
+            // alert("Le champ " + elt.placeholder + " est vide")
+            // input.parentNode.querySelector(".format").innerHTML = "Champ manquant"
+            // input.parentNode.querySelector(".format").style.color = "red"
             isOk = false;
         }
 
@@ -108,9 +112,10 @@ bouton.addEventListener("click", (e) => {
     if (!isOk) {
         return false
     }
+    
 
-
-    //--------------Récupération des donnés du formulaire ----------------------
+    
+    //--------------Récupération des donnés du formulaire ----------------------//
 
     const contact = { // Nom objet "contact" et nom des champs exigés par le cahier des charges
 
@@ -132,7 +137,7 @@ bouton.addEventListener("click", (e) => {
         products // Si pas de S à PRODUCT le ID de la commande n'est pas défini???
     }
 
-    // --------Envoi des informations du panier avec la méthode Post vers le serveur-------
+    // --------Envoi des informations du panier avec la méthode Post vers le serveur-------//
 
     const promiseCommande = fetch("http://localhost:3000/api/cameras/order", {
         method: "POST",
@@ -148,12 +153,13 @@ bouton.addEventListener("click", (e) => {
             const contenu = await response.json();
             console.log(contenu)
             localStorage.setItem("orderId", contenu.orderId) //id de la commande dans le local storage
-            localStorage.setItem('prixDeLaCommande', prixDeLaCommande.reduce(reducer));//resultat prix de la commande
+            localStorage.setItem('prixDeLaCommande', prixDeLaCommande.reduce(prixTotal));//resultat prix de la commande
         }
         catch (err) {
 
             console.log(err)
         }
+        
     })
 
 

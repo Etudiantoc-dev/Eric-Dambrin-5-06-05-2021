@@ -18,24 +18,24 @@ fetch('http://localhost:3000/api/cameras/' + id)
   .then(response => response.json())
   .then(item => {
     camera = new Camera(item)
+    // console.log(item)
     document.querySelector(".unproduit").innerHTML += camera.displayProduit();
 
 
-    //---Déclaration de variables pour la récupération des donnés sélectionnés de l'utilisateur
-    // et déclaration du bouton ajouter au panier---//
-
-    idForm = document.querySelector("#lentilles");
-    console.log(idForm);
-    let idImg = document.querySelector(".appareilProduit");
-    console.log(idImg);
-    let btnSelection = document.querySelector("#btn");
-
+    
+    
                       //.....................LOCAL STORAGE.....................//
+                      
+    //---Déclaration de la variable idForm 
+    let idForm = document.querySelector("#lentilles");
+    
+    //déclaration du bouton ajouter au panier
+    let btnSelection = document.querySelector("#btn");
 
     //  Ecouter le bouton et envoyer au panier :
     btnSelection.addEventListener("click", (event) => {
       event.preventDefault()
-      //Déclaration de cette varaible dans laquelle on met les key et les values du local storage
+      //Déclaration de cette variable dans laquelle on met les key et les values du local storage
       //JSON.parse c'est pour convertir les données format JSON qui sont dans le local storage en objet javascript
       let produitLocalStorage = localStorage.getItem("produit") ? JSON.parse(localStorage.getItem("produit")): [] //Condition ternaire
 
@@ -58,9 +58,12 @@ fetch('http://localhost:3000/api/cameras/' + id)
         
         return (confirm("Voulez-vous que La sélection soit enregistré dans votre panier ?"));
       }
+
+      // J'ai l'impression que ce ELSE ne sert à rien??? :
+
       //S'il n'y a pas de produits enregistrés dans le local storage
       // else {
-      //   produitLocalStorage = [] // J'ai l'impression que ce ELSE ne sert à rien???
+      //   produitLocalStorage = [] 
       //   produitLocalStorage.push(optionProduit);
       //   localStorage.setItem("produit", JSON.stringify(produitLocalStorage))
       //   return (confirm("Voulez-vous que La sélection soit enregistré dans votre panier ?"));
