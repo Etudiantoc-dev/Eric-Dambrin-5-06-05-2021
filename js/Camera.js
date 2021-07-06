@@ -13,7 +13,7 @@ class Camera {
                             <a href="produit.html?id=${this.id
       }"class= "photos"><img src="${this.imageUrl}">
                                 <h5 class="name">${this.name
-      }</h5> <div class="prix">${this.price / 100
+      }</h5> <div class="index_prix">${this.price / 100
       } €</div>
                                 <p class="description_appareil" >${this.description
       }</p>

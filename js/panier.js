@@ -21,7 +21,7 @@ if (produitLocalStorage === null) {
         structureProduitPanier +=
             `<div class="choixProduit">
         <class="image_choix_produit"><img src="${produitLocalStorage[i].image}">
-        <h5 class="name">${produitLocalStorage[i].nom}</h5> <div class="prixProduit">${produitLocalStorage[i].prix} €</div>
+        <h5 class="name">${produitLocalStorage[i].nom}</h5> <div class="prix_produit_panier">${produitLocalStorage[i].prix} €</div>
         <p class="lentilles">Taille de la lentille : ${produitLocalStorage[i].lentilles} </p></div>`
 
 
@@ -51,8 +51,8 @@ const validEmail = function (inputEmail) {
     let testEmail = emailRegExp.test(inputEmail);
 
     if (testEmail == true) {
-        document.querySelector('small').innerHTML = 'Ok'
-        document.querySelector('small').style.color = 'black'
+        document.querySelector('small').innerHTML = ''
+       
     } else {
         document.querySelector('small').innerHTML = 'Format Email inconnu'
         document.querySelector('small').style.color = 'red'
@@ -76,14 +76,20 @@ const validFormat = function (input) {
     return true;
 }
 //--------------Récupération des prix des produits contenus dans le panier-------//
-    
+ 
 let prixDeLaCommande = [];
 for (i = 0; i < produitLocalStorage.length; i++) {
 
-    prixDeLaCommande.push(produitLocalStorage[i].prix)
+    prixDeLaCommande.push(produitLocalStorage[i].prix);
 console.log(prixDeLaCommande);
    
 }
+// let imageDeLaCommande = [];
+// for(i = 0 ; produitLocalStorage.length ; i++){
+//     imageDeLaCommande.push(produitLocalStorage[i].image)
+//     console.log(imageDeLaCommande);??????????
+// }  
+
 // Addition pour obtenir prix total du panier avec la méthode reduce :
 const prixTotal = (accumulator, currentValue) => accumulator + currentValue
 console.log(prixDeLaCommande.reduce(prixTotal));
@@ -151,10 +157,10 @@ bouton.addEventListener("click", (e) => {
         try {
 
             const contenu = await response.json();
-            console.log(contenu)
             localStorage.setItem("orderId", contenu.orderId) //id de la commande dans le local storage
             localStorage.setItem('prixDeLaCommande', prixDeLaCommande.reduce(prixTotal));//resultat prix de la commande
         }
+
         catch (err) {
 
             console.log(err)

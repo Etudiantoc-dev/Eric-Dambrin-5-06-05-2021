@@ -56,7 +56,7 @@ fetch('http://localhost:3000/api/cameras/' + id)
         produitLocalStorage.push(optionProduit);
         localStorage.setItem("produit", JSON.stringify(produitLocalStorage))
         
-        return (confirm("Voulez-vous que La sélection soit enregistré dans votre panier ?"));
+        return (alert("La sélection a été ajouté à votre panier !"));
       }
 
       // J'ai l'impression que ce ELSE ne sert à rien??? :

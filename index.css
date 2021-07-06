@@ -33,9 +33,20 @@ h1 {
 }
 #container h5 {
   margin-left: 10px;
+  color: azure;
 }
+.index_prix{
+  color: azure;
+  display: flex;
+  margin: auto;
+  justify-content: center;
+}
+
+
 #container p {
   margin-left: 5px;
+  color: azure;
+
 }
 ul {
   /* width: 100%; */
@@ -84,9 +95,9 @@ a {
 .appareil_5 {
   /* height: 100px; */
   margin: auto;
-  background: #dfe0e0;
+  background: #000000e8;
   margin: 10px;
-  box-shadow: 2px 2px rgb(45 30 30);
+  box-shadow: 2px 1px rgb(237 235 235);
   /* width: 100%; */
 }
 /*--------------------------- PAGE PRODUIT---------------------------*/
@@ -95,8 +106,10 @@ a {
   padding-top: 10px;
   width: 80%;
   margin: auto;
+  background: #000000bf;
   /* margin-top: 20px; */
 }
+
 #container_page_produit h5,
 .description_produit,
 .prixProduit,
@@ -107,7 +120,15 @@ select {
   margin: auto;
   color: black;
   margin-top: 10px;
+  text-align: center;
 }
+#container_page_produit h5,
+.description_produit,
+.prixProduit,
+label{
+  color: azure;
+}
+
 
 #container_page_produit .description_produit {
   width: 80%;
@@ -121,10 +142,11 @@ select {
 #container .prix, .name, .description_appareil{
   color: black;
   margin-left: 10px;
+  text-align: center;
 }
 #write_produit{
  
- background:#dfe0e0 ;
+ background:#000000bf ;
  width: 80%;
  margin: auto;
  padding-top: 10px;
@@ -132,8 +154,13 @@ select {
 }
 
 
-/* STYLE POUR PAGE PANIER */
+/*-------------------------- STYLE POUR PAGE PANIER------------------------ */
+.prix_produit_panier{
+  display: flex;
+  margin: auto;
+  justify-content: center;
 
+}
 #produitChoisi{
   display: flex;
   flex-direction: column;
@@ -158,6 +185,9 @@ select {
   width: 50%;
   margin: auto;
 }
+.form_group label{
+  color: azure;
+}
 p.lentilles,.choixProduit .prixProduit,.choixProduit h5,h3 {
   display: flex;
   width: 68%;
@@ -172,6 +202,7 @@ p.lentilles,.choixProduit .prixProduit,.choixProduit h5,h3 {
   font-size: large;
   width: max-content;
   flex-wrap: wrap;
+  color: azure;
 }
 .suite_instruction {
   margin-top: -30px;
@@ -188,8 +219,9 @@ a {
 }
 
 #bouton{
-  background: #faebd780;
+  background: #ffffff91;
   border: 0.01px ridge;
+  color: azure;
   
   
   
@@ -203,18 +235,35 @@ a {
 }
 
 #paiement form {
-  background: #faebd78c;
+  background: #faebd7;
   border-style: ridge;
+  background: #000000d6;
 }
 
-/* ----------Style PAge confirmation commande------------------ */
+/* -------------------------------Style PAge confirmation commande------------------ */
 #container_commande{
-  
+ 
   border: 2px solid brown;
   margin: auto;
   margin-top: 20px;
   width: 75%;
   height: 50vh;
+  text-align: center;
+}
+#container_commande h4{
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  width: 100%;
+  margin-top: 30px;
+
+}
+#container_commande p{
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  width: 100%;
+  margin-top: 30px;
 }
 
 @media (min-width: 1024px) {
