@@ -37,27 +37,7 @@ fetch('http://localhost:3000/api/cameras/' + id)
       event.preventDefault()
       //Déclaration de cette variable dans laquelle on met les key et les values du local storage
       //JSON.parse c'est pour convertir les données format JSON qui sont dans le local storage en objet javascript
-      let produitLocalStorage = localStorage.getItem("produit") ? JSON.parse(localStorage.getItem("produit")): [] //Condition ternaire
-
-      //Déclaration de cette variable représentant un tableau des informations tirés de la class Cameras
-      let optionProduit = {
-        image: camera.imageUrl,
-        nom: camera.name,
-        prix: camera.price / 100,
-        description: camera.description,
-        id: camera.id,
-        lentilles: idForm.value,
-        quantite: 1
-      }
-       // Cette condition permet d'obtenir le nombre d'objet que l'on veut dans le local storage
-      
-       // S'il y a dejà des produits enregistrés dans le local storage
-      if (produitLocalStorage) {
-        produitLocalStorage.push(optionProduit);
-        localStorage.setItem("produit", JSON.stringify(produitLocalStorage))
-        
-        return (alert("La sélection a été ajouté à votre panier !"));
-      }
+      addToLocalStorage(camera, idForm.value)
 
       // J'ai l'impression que ce ELSE ne sert à rien??? :
 
@@ -71,7 +51,29 @@ fetch('http://localhost:3000/api/cameras/' + id)
     })
   })
 
+function addToLocalStorage(camera, lens ){
+  let produitLocalStorage = localStorage.getItem("produit") ? JSON.parse(localStorage.getItem("produit")): [] //Condition ternaire
 
+  //Déclaration de cette variable représentant un tableau des informations tirés de la class Cameras
+  let optionProduit = {
+    image: camera.imageUrl,
+    nom: camera.name,
+    prix: camera.price / 100,
+    description: camera.description,
+    id: camera.id,
+    lentilles: lens,
+    quantite: 1
+  }
+   // Cette condition permet d'obtenir le nombre d'objet que l'on veut dans le local storage
+  
+   // S'il y a dejà des produits enregistrés dans le local storage
+  if (produitLocalStorage) {
+    produitLocalStorage.push(optionProduit);
+    localStorage.setItem("produit", JSON.stringify(produitLocalStorage))
+    
+    return (alert("La sélection a été ajouté à votre panier !"));
+  }
+}
 
 
 

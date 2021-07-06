@@ -9,7 +9,7 @@ class Camera {
   }
 
   displayInList(index) {
-    return `<div class="appareil_${index}">
+    return `<div class="appareil_index">
                             <a href="produit.html?id=${this.id
       }"class= "photos"><img src="${this.imageUrl}">
                                 <h5 class="name">${this.name
