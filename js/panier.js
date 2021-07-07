@@ -44,7 +44,7 @@ form.email.addEventListener('change', (e) => {
     //POURQUOI VALIDFORMAT N'EST PAS DANS L'ECOUTE???
 });
 // Validation de l'Email selon une expression régulière
-const validEmail = function (inputEmail) {
+function validEmail(inputEmail) {
     let emailRegExp =
         /^[a-zA-Z0-9.-_]+[@]{1}[a-zA-Z0-9.-_]+[.]{1}[a-z]{2,10}$/
 
@@ -60,10 +60,7 @@ const validEmail = function (inputEmail) {
     return testEmail
 }
 
-
-
-
-const validFormat = function (input) {
+function validFormat(input) {
 
     if (input.value.trim()=='') {
         //trim permet de prendre en compte lorsque l'on fait une barre espace que ce n'est pas une valeur inscrite dans le champs au même titre qu'une lettre..
