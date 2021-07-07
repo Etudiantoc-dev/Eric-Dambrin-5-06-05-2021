@@ -61,9 +61,11 @@ const validEmail = function (inputEmail) {
 }
 
 
+
+
 const validFormat = function (input) {
 
-    if (input.value.trim() === '') {
+    if (input.value.trim()=='') {
         //trim permet de prendre en compte lorsque l'on fait une barre espace que ce n'est pas une valeur inscrite dans le champs au même titre qu'une lettre..
 
         //parentNode permet de dire si le format est bon ou pas SOUS le champs concerné
