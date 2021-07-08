@@ -40,9 +40,9 @@ let form = document.querySelector(".champ_a_remplir");
 form.email.addEventListener('change', (e) => {
 
     validEmail(e.target.value);// l'élément 'target' déclenche l'évènement à sa juste valeur 'value'
-    // Demander plus d'explications...??
-    //POURQUOI VALIDFORMAT N'EST PAS DANS L'ECOUTE???
+   
 });
+
 // Validation de l'Email selon une expression régulière
 function validEmail(inputEmail) {
     let emailRegExp =
@@ -52,7 +52,7 @@ function validEmail(inputEmail) {
 
     if (testEmail == true) {
         document.querySelector('small').innerHTML = ''
-       
+
     } else {
         document.querySelector('small').innerHTML = 'Format Email inconnu'
         document.querySelector('small').style.color = 'red'
@@ -62,7 +62,7 @@ function validEmail(inputEmail) {
 
 function validFormat(input) {
 
-    if (input.value.trim()=='') {
+    if (input.value.trim() == '') {
         //trim permet de prendre en compte lorsque l'on fait une barre espace que ce n'est pas une valeur inscrite dans le champs au même titre qu'une lettre..
 
         //parentNode permet de dire si le format est bon ou pas SOUS le champs concerné
@@ -75,31 +75,27 @@ function validFormat(input) {
     return true;
 }
 //--------------Récupération des prix des produits contenus dans le panier-------//
- 
-let prixDeLaCommande = [];
-for (i = 0; i < produitLocalStorage.length; i++) {
 
-    prixDeLaCommande.push(produitLocalStorage[i].prix);
-console.log(prixDeLaCommande);
-   
-}
-// let imageDeLaCommande = [];
-// for(i = 0 ; produitLocalStorage.length ; i++){
-//     imageDeLaCommande.push(produitLocalStorage[i].image)
-//     console.log(imageDeLaCommande);??????????
-// }  
+function CalculPrixCommande(prixDeLaCommande, prixTotal) {
+    prixDeLaCommande = [];
+    for (i = 0; i < produitLocalStorage.length; i++) {
 
-// Addition pour obtenir prix total du panier avec la méthode reduce :
-const prixTotal = (accumulator, currentValue) => accumulator + currentValue
-console.log(prixDeLaCommande.reduce(prixTotal));
+        prixDeLaCommande.push(produitLocalStorage[i].prix);
+
+        prixTotal = (accumulator, currentValue) => accumulator + currentValue
+
+    }
+}// Je ne sais pas comment vérifier si c'est ok??
+
 
 
 //Ecoute au click du bouton de toutes les valeurs des champs pour valider le formulaire
+
 bouton.addEventListener("click", (e) => {
     e.preventDefault();
     let form = document.querySelector(".champ_a_remplir");
     if (!validEmail(form.email.value)) {
-        // alert("erreur email");
+
         return false
     }
     let isOk = true;
@@ -107,19 +103,15 @@ bouton.addEventListener("click", (e) => {
 
         if (!validFormat(elt)) {
 
-            // alert("Le champ " + elt.placeholder + " est vide")
-            // input.parentNode.querySelector(".format").innerHTML = "Champ manquant"
-            // input.parentNode.querySelector(".format").style.color = "red"
             isOk = false;
         }
 
     })
     if (!isOk) {
-        return false
+        return false;
     }
-    
 
-    
+
     //--------------Récupération des donnés du formulaire ----------------------//
 
     const contact = { // Nom objet "contact" et nom des champs exigés par le cahier des charges
@@ -151,12 +143,11 @@ bouton.addEventListener("click", (e) => {
 
     })
 
-
     promiseCommande.then(async (response) => {
         try {
 
             const contenu = await response.json();
-            localStorage.setItem("orderId", contenu.orderId) //id de la commande dans le local storage
+            localStorage.setItem("orderId", contenu.orderId); //id de la commande dans le local storage
             localStorage.setItem('prixDeLaCommande', prixDeLaCommande.reduce(prixTotal));//resultat prix de la commande
         }
 
@@ -164,21 +155,13 @@ bouton.addEventListener("click", (e) => {
 
             console.log(err)
         }
-        
+
     })
 
 
     // Pour aller sur la page confirmation commande :
 
     window.location = "confirmation commande.html";
-
-
-
-
-
-    // .then(response => response.json())
-    // .then(json => console.log(json))
-    // .catch(err => console.log(err));
 
 
 })
