@@ -76,16 +76,19 @@ function validFormat(input) {
 }
 //--------------Récupération des prix des produits contenus dans le panier-------//
 
-function CalculPrixCommande(prixDeLaCommande, prixTotal) {
-    prixDeLaCommande = [];
+
+     let prixDeLaCommande = [];
+     
+    
     for (i = 0; i < produitLocalStorage.length; i++) {
+        
 
         prixDeLaCommande.push(produitLocalStorage[i].prix);
 
-        prixTotal = (accumulator, currentValue) => accumulator + currentValue
+        }
+    let prixTotal = (accumulator, currentValue) => accumulator + currentValue;
 
-    }
-}// Je ne sais pas comment vérifier si c'est ok??
+// Je ne sais pas comment vérifier si c'est ok??
 
 
 
@@ -125,7 +128,7 @@ bouton.addEventListener("click", (e) => {
     //----------------Mettre les donnés du formulaire dans le localStorage-------------
     localStorage.setItem("newUser", JSON.stringify(contact));
 
-    let products = []; // Array de style product_id exigé par le cahier des charge
+    let products = []; // Array de style product_id exigé par le cahier des charges
     produitLocalStorage.forEach(produit => products.push(produit.id));
 
     // -----création de la variable contenant les produits du panier et les infos du formulaires--------
