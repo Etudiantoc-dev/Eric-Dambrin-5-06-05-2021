@@ -1,5 +1,5 @@
 //Nouvelle déclaration de la même variable(=produit.js) pour récupérer des informations du produit selectionné envoyé dans le local storage
-let produitLocalStorage = JSON.parse(localStorage.getItem("produit"));
+let produitsLocalStorage = JSON.parse(localStorage.getItem("produit"));
 
 //.............Affichage produits panier..............//
 
