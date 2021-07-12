@@ -14,7 +14,15 @@ fetch('http://localhost:3000/api/cameras')
             let container = document.querySelector(".quatre_cinq");
             container.innerHTML += appareils.displayInList(index+1);  
         }
-    });
+        
+    })
+    .catch(error =>{
+        let container = document.querySelector("#container");
+        container.innerHTML += `<div><h1 Une Erreur est survenu, veuillez revenir plus tard </h1></div>` 
+
+    })
+    
+    
  
 })
 
