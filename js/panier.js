@@ -65,7 +65,7 @@ bouton.addEventListener("click", (e) => {
         .then(contenu => {
             localStorage.setItem("orderId", contenu.orderId); //id de la commande dans le local storage
             localStorage.setItem('prixDeLaCommande', calculerPrixTotal(produitsLocalStorage));//resultat prix de la commande
-            window.location = "confirmation commande.html";// Pour aller sur la page confirmation commande :
+            window.location = "confirmation_commande.html";// Pour aller sur la page confirmation commande :
         })
 
         .catch(err => {

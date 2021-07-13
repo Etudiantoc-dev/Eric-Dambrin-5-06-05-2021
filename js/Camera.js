@@ -35,19 +35,12 @@ class Camera {
                    </select>
                    
          </form>
-         
-         
-         
-         <div> <a href="panier.html?id=${this.id
-      } class="ajouter"><input type="submit" id="btn" value="Ajouter dans le panier" ></div></div></a>`; //ne renvoit pas au panier?
+          <div> <a href="panier.html?id=${this.id
+      } class="ajouter"><input type="submit" id="btn" value="Ajouter dans le panier" ></div></div></a>`; 
   }
 
   displayLenses() {
     let option = "";
-    /*
-            option +=  this.lenses.map(lense => {
-                return `<option>${lense}</option>`;
-            });*/
     this.lenses.forEach((lense) => {
       option += `<option>${lense}</option>`;
     });
