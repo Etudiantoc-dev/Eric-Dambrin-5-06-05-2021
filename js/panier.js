@@ -1,4 +1,4 @@
-//Nouvelle déclaration de la même variable(=produit.js) pour récupérer des informations du produit selectionné envoyé dans le local storage
+//Nouvelle déclaration des produits contenus dans le Local Storage 
 let produitsLocalStorage = JSON.parse(localStorage.getItem("produit"));
 
 //.............Affichage produits panier..............//
@@ -87,6 +87,7 @@ function genererContenuPanier(panier) {
     if (panier === null) {
         const panierVide = `<div class="container_panier_vide">Le panier est vide</div>`;
         return panierVide;
+        
     }
     let htmlElements = "";
     for (i = 0; i < panier.length; i++) {
@@ -95,7 +96,7 @@ function genererContenuPanier(panier) {
         <class="image_choix_produit"><img src="${panier[i].image}">
         <h5 class="name">${panier[i].nom}</h5> <div class="prix_produit_panier">${panier[i].prix} €</div>
         <p class="lentilles">Taille de la lentille : ${panier[i].lentilles} </p></div>`
-    } console.log(panier, htmlElements)
+    } 
     return htmlElements
 
 
@@ -138,13 +139,9 @@ function validFormat(input) {
     }
     return true;
 }
-/**
- * 
- * @returns 
- */
 
 function verifFormulaire() {
-    let form = document.querySelector(".champ_a_remplir");
+    
     if (!validEmail(form.email.value)) {
 
         return false
@@ -161,7 +158,7 @@ function verifFormulaire() {
     return isOk
 }
 
-function creerUserCommande() {// Nom objet "contact" et nom des champs exigés par le cahier des charges
+function creerUserCommande() {// Nom objet "contact" et nom des champs exigés par le cahier des charges par rapport au backend
     return {
         lastName: document.querySelector("#lastName").value,
         firstName: document.querySelector("#firstName").value,

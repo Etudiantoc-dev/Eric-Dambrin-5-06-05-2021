@@ -10,7 +10,6 @@ const urlSearchParams = new URLSearchParams(queryString_url_id);
 //-----affichage de l'ID sans le ?----//
 const id = urlSearchParams.get("id");
 
-
 fetch('http://localhost:3000/api/cameras/' + id)
   .then(response => response.json())
   .then(item => {
@@ -18,10 +17,7 @@ fetch('http://localhost:3000/api/cameras/' + id)
     // console.log(item)
     document.querySelector(".unproduit").innerHTML += camera.displayProduit();
 
-
-    
-    
-                      //.....................LOCAL STORAGE.....................//
+                                       //.....................LOCAL STORAGE.....................//
                       
     //---Déclaration de la variable idForm 
     let idForm = document.querySelector("#lentilles");
@@ -37,7 +33,7 @@ fetch('http://localhost:3000/api/cameras/' + id)
 
     })
   })
-function addToLocalStorage(camera, lens ){//Déclaration de cette variable dans laquelle on met les key et les values du local storage
+function addToLocalStorage(camera, lens ){//Déclaration de cette fonction dans laquelle on met les key et les values du local storage
   //JSON.parse c'est pour convertir les données format JSON qui sont dans le local storage en objet javascript
   let produitLocalStorage = localStorage.getItem("produit") ? JSON.parse(localStorage.getItem("produit")): [] //Condition ternaire
 
@@ -51,7 +47,6 @@ function addToLocalStorage(camera, lens ){//Déclaration de cette variable dans 
     lentilles: lens,
     quantite: 1
   }
-   // Cette condition permet d'obtenir le nombre d'objet que l'on veut dans le local storage
   
    // S'il y a dejà des produits enregistrés dans le local storage
   if (produitLocalStorage) {
