@@ -17,25 +17,25 @@ fetch('http://localhost:3000/api/cameras/' + id)
     // console.log(item)
     document.querySelector(".unproduit").innerHTML += camera.displayProduit();
 
-                                       //.....................LOCAL STORAGE.....................//
-                      
+    //.....................LOCAL STORAGE.....................//
+
     //---Déclaration de la variable idForm 
     let idForm = document.querySelector("#lentilles");
-    
+
     //déclaration du bouton ajouter au panier
     let btnSelection = document.querySelector("#btn");
 
     //  Ecouter le bouton et envoyer au panier :
     btnSelection.addEventListener("click", (event) => {
       event.preventDefault()
-      
+
       addToLocalStorage(camera, idForm.value)
 
     })
   })
-function addToLocalStorage(camera, lens ){//Déclaration de cette fonction dans laquelle on met les key et les values du local storage
+function addToLocalStorage(camera, lens) {//Déclaration de cette fonction dans laquelle on met les key et les values du local storage
   //JSON.parse c'est pour convertir les données format JSON qui sont dans le local storage en objet javascript
-  let produitLocalStorage = localStorage.getItem("produit") ? JSON.parse(localStorage.getItem("produit")): [] //Condition ternaire
+  let produitLocalStorage = localStorage.getItem("produit") ? JSON.parse(localStorage.getItem("produit")) : [] //Condition ternaire
 
   //Déclaration de cette variable représentant un tableau des informations tirés de la class Cameras
   let optionProduit = {
@@ -47,12 +47,12 @@ function addToLocalStorage(camera, lens ){//Déclaration de cette fonction dans 
     lentilles: lens,
     quantite: 1
   }
-  
-   // S'il y a dejà des produits enregistrés dans le local storage
+
+  // S'il y a dejà des produits enregistrés dans le local storage
   if (produitLocalStorage) {
     produitLocalStorage.push(optionProduit);
     localStorage.setItem("produit", JSON.stringify(produitLocalStorage))
-    
+
     return (alert("La sélection a été ajouté à votre panier !"));
   }
 }

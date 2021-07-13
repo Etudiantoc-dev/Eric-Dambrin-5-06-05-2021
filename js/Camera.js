@@ -36,7 +36,7 @@ class Camera {
                    
          </form>
           <div> <a href="panier.html?id=${this.id
-      } class="ajouter"><input type="submit" id="btn" value="Ajouter dans le panier" ></div></div></a>`; 
+      } class="ajouter"><input type="submit" id="btn" value="Ajouter dans le panier" ></div></div></a>`;
   }
 
   displayLenses() {

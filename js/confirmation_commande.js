@@ -6,7 +6,7 @@ let prixDeLaCommande = localStorage.getItem("prixDeLaCommande");
 
 //-----------Affichage des infos sur la page---------// 
 
- document.querySelector("#container_commande").innerHTML += `<div class="articles"><h3>Merci pour votre commande !</h3>
+document.querySelector("#container_commande").innerHTML += `<div class="articles"><h3>Merci pour votre commande !</h3>
 <h4>Nous vous confirmons votre commande numéro: ${orderId}</h4>
 <p>Le montant est de : ${prixDeLaCommande} €uros.<p> </div>`;
 
