@@ -31,7 +31,7 @@ h1 {
 .index_prix{
   color: azure;
   display: flex;
-  margin: auto;
+   margin-left: 15px;
   justify-content: center;
 }
 
@@ -74,7 +74,7 @@ a {
   display: flex;
   justify-content: center;
   margin: auto;
-  /* height: 300px; */
+  height: 64vh;
   object-fit: cover;
   margin-top: 20px;
 }
@@ -166,13 +166,14 @@ label{
   margin: auto;
 }
 .choixProduit img{
-  width: 80%;
+  width: 100%;
+  height: 360px;
   display: flex;
   justify-content: center;
   margin: auto;
   object-fit: cover;
   margin-top: 20px;
- box-shadow: 0px 2px azure;
+  box-shadow: 0px 2px azure;
 }
 
 .form_group {
@@ -185,10 +186,9 @@ label{
 .form_group label{
   color: azure;
 }
-p.lentilles,.choixProduit .prixProduit,.choixProduit h5,h3 {
+p.lentilles,.choixProduit, .choixProduit h5,.prixProduit,h3 {
   display: flex;
-  
-justify-content: center;
+  justify-content: center;
   margin: auto;
 }
 .instruction,
