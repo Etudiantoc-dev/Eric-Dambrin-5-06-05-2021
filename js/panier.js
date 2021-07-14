@@ -118,8 +118,8 @@ function validEmail(inputEmail) {
         document.querySelector('small').innerHTML = ''
 
     } else {
-        document.querySelector('small').innerHTML = 'Format Email inconnu'
-        document.querySelector('small').style.color = 'red'
+        document.querySelector('small').innerHTML = 'Format Email inconnu';
+        document.querySelector('small').style.color = 'red';
     }
     return testEmail
 }

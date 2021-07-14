@@ -15,29 +15,33 @@ fetch('http://localhost:3000/api/cameras')
                 container.innerHTML += appareils.displayInList(index + 1);
             }
         })
-            .catch(() => {
-               let container = document.querySelector("#container");
-               container.innerHTML += appareils.displayInList(`<h1> error </h1>`);
-   
-           })
-        })
 
-            
 
+    }).catch(() => {
         
-             
-    ;
-    
-        
+        document.querySelector("#container").innerHTML = `<h1> Désolé, une erreur est survenue, veuillez réessayer plus tard, merci! </h1>`;
+        document.querySelector('#container h1').style.color = 'red';
+        document.querySelector('#container h1').style.textAlign = 'center';
 
-        
-           
-        
-    
+    })
 
 
 
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
