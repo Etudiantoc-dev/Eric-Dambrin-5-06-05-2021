@@ -167,7 +167,7 @@ label{
 }
 .choixProduit img{
   width: 100%;
-  height: 360px;
+  /* height: 360px; */
   display: flex;
   justify-content: center;
   margin: auto;
@@ -261,6 +261,11 @@ a {
   margin: auto;
   width: 100%;
   margin-top: 30px;
+}
+@media (max-width : 1024px){
+  .choixProduit img {
+    height: 360px;
+  }
 }
 
 @media (min-width: 1024px) {
