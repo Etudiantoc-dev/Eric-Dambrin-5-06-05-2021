@@ -2,12 +2,8 @@
 let produitsLocalStorage = JSON.parse(localStorage.getItem("produit"));
 
 //.............Affichage produits panier..............//
-
 const positionElement = document.querySelector("#produitChoisi");
-
 positionElement.innerHTML = genererContenuPanier(produitsLocalStorage);
-
-
 
 //Déclaration de la variable "form" pour la sélection du formulaire
 let form = document.querySelector(".champ_a_remplir");
@@ -15,14 +11,9 @@ let form = document.querySelector(".champ_a_remplir");
 // Écoute de la valeur écrite dans le champs de l'Email par l'utilisateur
 form.email.addEventListener('change', (e) => {
 
-    validEmail(e.target.value); // l'élément 'target' déclenche l'évènement à sa juste valeur 'value'
+    validEmail(e.target.value);
 
 });
-
-
-//--------------Récupération des prix des produits contenus dans le panier-------//
-
-
 
 //Ecoute au click du bouton de toutes les valeurs des champs pour valider le formulaire
 
@@ -32,16 +23,10 @@ bouton.addEventListener("click", (e) => {
         return false
     }
 
-
-    //--------------Récupération des donnés du formulaire ----------------------//
-
-    const contact = creerUserCommande()
-
-
-
     //----------------Mettre les donnés du formulaire dans le localStorage-------------
     localStorage.setItem("newUser", JSON.stringify(contact));
 
+    const contact = creerUserCommande()
     let products = []; // Array de style product_id exigé par le cahier des charges
     produitsLocalStorage.forEach(produit => products.push(produit.id));
 
@@ -50,7 +35,6 @@ bouton.addEventListener("click", (e) => {
         contact,
         products // Si pas de S à PRODUCT le ID de la commande n'est pas défini???
     }
-
 
     // --------Envoi des informations du panier avec la méthode Post vers le serveur-------//
 
@@ -72,10 +56,8 @@ bouton.addEventListener("click", (e) => {
 
             console.log(err)
         })
-
-
-
 })
+
 /**
  * 
  * @param {Array} panier  : Tableau de produits
@@ -98,7 +80,6 @@ function genererContenuPanier(panier) {
         <p class="lentilles">Taille de la lentille : ${panier[i].lentilles} </p></div>`
     }
     return htmlElements
-
 
 }
 /**
