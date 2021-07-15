@@ -1,32 +1,19 @@
-
-//----Récuperation de la chaîne de requête dans l'url----//
-
-const queryString_url_id = window.location.search;
-
-//----affichage des paramètres---//
-
-const urlSearchParams = new URLSearchParams(queryString_url_id);
-
-//-----affichage de l'ID sans le ?----//
-const id = urlSearchParams.get("id");
+const queryString_url_id = window.location.search;//----Récuperation de la chaîne de requête dans l'url après le ?
+const urlSearchParams = new URLSearchParams(queryString_url_id);//----Extraction des paramètres
+const id = urlSearchParams.get("id");//-----Extraction du paramètre ID
 
 fetch('http://localhost:3000/api/cameras/' + id)
   .then(response => response.json())
-  .then(item => {
-    camera = new Camera(item)
+  .then(objet => {
+    camera = new Camera(objet)
     // console.log(item)
     document.querySelector(".unproduit").innerHTML += camera.displayProduit();
+                   
+                  //.....................LOCAL STORAGE.....................//
+     let idForm = document.querySelector("#lentilles");//---Déclaration de la variable idForm
+     let btnSelection = document.querySelector("#btn");//déclaration du bouton ajouter au panier
 
-    //.....................LOCAL STORAGE.....................//
-
-    //---Déclaration de la variable idForm 
-    let idForm = document.querySelector("#lentilles");
-
-    //déclaration du bouton ajouter au panier
-    let btnSelection = document.querySelector("#btn");
-
-    //  Ecouter le bouton et envoyer au panier :
-    btnSelection.addEventListener("click", (event) => {
+    btnSelection.addEventListener("click", (event) => {//  Ecouter le bouton et envoyer au panier :
       event.preventDefault()
 
       addToLocalStorage(camera, idForm.value)
@@ -53,7 +40,6 @@ fetch('http://localhost:3000/api/cameras/' + id)
     quantite: 1
   }
 
-  // S'il y a dejà des produits enregistrés dans le local storage
   if (produitLocalStorage) {
     produitLocalStorage.push(optionProduit);
     localStorage.setItem("produit", JSON.stringify(produitLocalStorage))
