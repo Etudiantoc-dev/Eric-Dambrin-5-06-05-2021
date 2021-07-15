@@ -25,10 +25,10 @@ fetch('http://localhost:3000/api/cameras/' + id)
     document.querySelector('#container h1').style.textAlign = 'center';
   })
 
-  function addToLocalStorage(camera, lens) {//Déclaration de cette fonction dans laquelle on met les key et les values du local storage
-  //JSON.parse c'est pour convertir les données format JSON qui sont dans le local storage en objet javascript
+  function addToLocalStorage(camera, lens) {
   let produitLocalStorage = localStorage.getItem("produit") ? JSON.parse(localStorage.getItem("produit")) : [] //Condition ternaire
-
+  //JSON.parse = conversion format JSON en objet javascript
+ 
   //Déclaration de cette variable représentant un tableau des informations tirés de la class Cameras
   let optionProduit = {
     image: camera.imageUrl,
