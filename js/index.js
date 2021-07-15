@@ -9,7 +9,7 @@ fetch('http://localhost:3000/api/cameras')
             // console.log(appareils)
             if (index < 3) {
                 let container = document.querySelector(".un_deux_trois");
-                container.innerHTML += appareils.displayInList(index + 1);
+            container.innerHTML += appareils.displayInList(index + 1);
             } else {
                 let container = document.querySelector(".quatre_cinq");
                 container.innerHTML += appareils.displayInList(index + 1);
