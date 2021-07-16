@@ -65,11 +65,10 @@ bouton.addEventListener("click", (e) => {
  */
 
 function genererContenuPanier(panier) {
-    //Si le panier est vide : afficher panier vide :
     if (panier === null) {
         const panierVide = `<div class="container_panier_vide">Le panier est vide</div>`;
         return panierVide;
-
+        
     }
     let htmlElements = "";
     for (i = 0; i < panier.length; i++) {
@@ -79,6 +78,7 @@ function genererContenuPanier(panier) {
         <h5 class="name">${panier[i].nom}</h5> <div class="prix_produit_panier">${panier[i].prix} €</div>
         <p class="lentilles">Taille de la lentille : ${panier[i].lentilles} </p></div>`
     }
+    
     return htmlElements
 
 }
