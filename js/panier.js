@@ -1,63 +1,48 @@
-//Nouvelle déclaration des produits contenus dans le Local Storage 
-let produitsLocalStorage = JSON.parse(localStorage.getItem("produit"));
-
-//.............Affichage produits panier..............//
+let produitsLocalStorage = JSON.parse(localStorage.getItem("produit"));//Nouvelle déclaration des produits contenus dans le Local Storage 
 const positionElement = document.querySelector("#produitChoisi");
-positionElement.innerHTML = genererContenuPanier(produitsLocalStorage);
+positionElement.innerHTML = genererContenuPanier(produitsLocalStorage);//Affichage produits panier
 
-//Déclaration de la variable "form" pour la sélection du formulaire
-let form = document.querySelector(".champ_a_remplir");
+let form = document.querySelector(".champ_a_remplir");//Déclaration de la variable "form" pour la sélection du formulaire
 
-// Écoute de la valeur écrite dans le champs de l'Email par l'utilisateur
-form.email.addEventListener('change', (e) => {
-
+form.email.addEventListener('change', (e) => {// Écoute de la valeur écrite dans le champs de l'Email par l'utilisateur
     validEmail(e.target.value);
-
 });
 
-//Ecoute au click du bouton de toutes les valeurs des champs pour valider le formulaire
-
-bouton.addEventListener("click", (e) => {
+bouton.addEventListener("click", (e) => {//Ecoute au click du bouton de toutes les valeurs des champs pour valider le formulaire
     e.preventDefault();
     if (verifFormulaire() == false) {
         return false
     }
 
     //----------------Mettre les donnés du formulaire dans le localStorage-------------
+    const contact = creerUserCommande()
     localStorage.setItem("newUser", JSON.stringify(contact));
 
-    const contact = creerUserCommande()
     let products = []; // Array de style product_id exigé par le cahier des charges
     produitsLocalStorage.forEach(produit => products.push(produit.id));
 
-    // -----création de la variable contenant les produits du panier et les infos du formulaires--------
-    let infosServeur = {
+    let infosServeur = {//création de la variable contenant les produits du panier et les infos du formulaires
         contact,
-        products // Si pas de S à PRODUCT le ID de la commande n'est pas défini???
+        products
     }
-
     // --------Envoi des informations du panier avec la méthode Post vers le serveur-------//
 
     fetch("http://localhost:3000/api/cameras/order", {
         method: "POST",
         body: JSON.stringify(infosServeur),
         headers: { "Content-type": "application/json; charset=UTF-8" },
-
     })
-
         .then(response => response.json())
+
         .then(contenu => {
             localStorage.setItem("orderId", contenu.orderId); //id de la commande dans le local storage
             localStorage.setItem('prixDeLaCommande', calculerPrixTotal(produitsLocalStorage));//resultat prix de la commande
-            window.location = "confirmation_commande.html";// Pour aller sur la page confirmation commande :
+            window.location = "confirmation_commande.html";// Envoi vars la page confirmation commande :
         })
-
-        .catch(err => {
-
-            console.log(err)
+        .catch(error => {
+            console.log('Il y a eu un problème avec l\'opération fetch: ' + error.message);
         })
 })
-
 /**
  * 
  * @param {Array} panier  : Tableau de produits
@@ -68,7 +53,6 @@ function genererContenuPanier(panier) {
     if (panier === null) {
         const panierVide = `<div class="container_panier_vide">Le panier est vide</div>`;
         return panierVide;
-        
     }
     let htmlElements = "";
     for (i = 0; i < panier.length; i++) {
@@ -78,21 +62,19 @@ function genererContenuPanier(panier) {
         <h5 class="name">${panier[i].nom}</h5> <div class="prix_produit_panier">${panier[i].prix} €</div>
         <p class="lentilles">Taille de la lentille : ${panier[i].lentilles} </p></div>`
     }
-    
-    return htmlElements
 
+    return htmlElements
 }
 /**
  * 
- * @param {String} inputEmail 
+ * @param {String} inputEmail : expression régulière de l'Email
  * @returns boolean
  */
 
-// Validation de l'Email selon une expression régulière
-function validEmail(inputEmail) {
+
+function validEmail(inputEmail) { // Validation de l'Email selon une expression régulière
     let emailRegExp =
         /^[a-zA-Z0-9.-_]+[@]{1}[a-zA-Z0-9.-_]+[.]{1}[a-z]{2,10}$/
-
     let testEmail = emailRegExp.test(inputEmail);
 
     if (testEmail == true) {
@@ -107,11 +89,9 @@ function validEmail(inputEmail) {
 
 
 function validFormat(input) {
-
     if (input.value.trim() == '') {
-        //trim permet de prendre en compte lorsque l'on fait une barre espace que ce n'est pas une valeur inscrite dans le champs au même titre qu'une lettre..
 
-        //parentNode permet de dire si le format est bon ou pas SOUS le champs concerné
+        //parentNode permet de cibler la classe concerné par l'instruction
         input.parentNode.querySelector(".format").innerHTML = "Champ manquant"
         input.parentNode.querySelector(".format").style.color = "red"
         return false; //Cela empêche d'enlever "Champ manquant" quand on le rempli??
@@ -122,13 +102,13 @@ function validFormat(input) {
 }
 
 function verifFormulaire() {
-
     if (!validEmail(form.email.value)) {
 
         return false
     }
     let isOk = true;
     Array.from(form.querySelectorAll('input[type="text"')).forEach(elt => {
+
 
         if (!validFormat(elt)) {
 
