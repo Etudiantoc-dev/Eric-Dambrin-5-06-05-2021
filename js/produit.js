@@ -1,17 +1,17 @@
 const queryString_url_id = window.location.search;//----Récuperation de la chaîne de requête dans l'url après le ?
 const urlSearchParams = new URLSearchParams(queryString_url_id);//----Extraction des paramètres
-const id = urlSearchParams.get("id");//-----Extraction du paramètre ID
+const id = urlSearchParams.get("id");//-----Extraction du paramètre ID sans le ? (la méthode get retourne la première valeur associée au paramètre de recherche donné)
+
 
 fetch('http://localhost:3000/api/cameras/' + id)
   .then(response => response.json())
   .then(objet => {
     camera = new Camera(objet)
-    // console.log(item)
     document.querySelector(".unproduit").innerHTML += camera.displayProduit();
                    
                   //.....................LOCAL STORAGE.....................//
      let idForm = document.querySelector("#lentilles");//---Déclaration de la variable idForm
-     let btnSelection = document.querySelector("#btn");//déclaration du bouton ajouter au panier
+     let btnSelection = document.querySelector("#btn");//déclaration du bouton "ajouter au panier"
 
     btnSelection.addEventListener("click", (event) => {//  Ecouter le bouton et envoyer au panier :
       event.preventDefault()
@@ -26,7 +26,7 @@ fetch('http://localhost:3000/api/cameras/' + id)
   })
 
   function addToLocalStorage(camera, lens) {
-  let produitLocalStorage = localStorage.getItem("produit") ? JSON.parse(localStorage.getItem("produit")) : [] //Condition ternaire
+  let produitLocalStorage = localStorage.getItem("produit") ? JSON.parse(localStorage.getItem("produit")) : [] 
   //JSON.parse = conversion format JSON en objet javascript
  
   //Déclaration de cette variable représentant un tableau des informations tirés de la class Cameras

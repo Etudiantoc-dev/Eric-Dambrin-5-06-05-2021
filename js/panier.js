@@ -14,7 +14,7 @@ bouton.addEventListener("click", (e) => {//Ecoute au click du bouton de toutes l
         return false
     }
 
-    //----------------Mettre les donnés du formulaire dans le localStorage-------------
+    //----------------Mettre les donnés(formulaire et produit(s)) du formulaire dans le localStorage-------------
     const contact = creerUserCommande()
     localStorage.setItem("newUser", JSON.stringify(contact));
 
